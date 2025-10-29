@@ -2,30 +2,39 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Réduisez vos impôts — Simulation gratuite | Partenaire Valority</title>
   <meta name="description" content="Audit fiscal gratuit en 15 minutes. Simulation personnalisée (PER, assurance-vie, épargne, immobilier) avec un conseiller partenaire Valority. 100% légal. Sans engagement." />
+  <meta name="robots" content="index,follow" />
 
-  <!-- Fonts (sobre & premium) -->
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Réduisez vos impôts — Simulation gratuite" />
+  <meta property="og:description" content="Audit fiscal gratuit en 15 minutes. Simulation personnalisée (PER, assurance-vie, immobilier) par un conseiller partenaire Valority." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/logo.svg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Newsreader:opsz,wght@6..72,700&display=swap" rel="stylesheet">
 
   <style>
-    /* ====== Design System ====== */
+    /* ===== Design system ===== */
     :root{
-      --brand:#0e2c63;        /* Navy Valority */
-      --gold:#C9A86A;         /* Doré principal */
-      --gold-50:#FBF7EE;      /* Doré très clair (fond global) */
-      --gold-100:#F4EADA;     /* Doré clair (sections alternées) */
-      --ink:#0F172A;          /* Texte principal */
-      --ink-2:#334155;        /* Texte secondaire */
-      --white:#ffffff;
-      --card:#ffffff;
-      --border:rgba(15,23,42,.10);
+      --brand:#0e2c63;       /* Navy Valority */
+      --gold:#C9A86A;        /* Doré principal */
+      --gold-50:#FBF7EE;     /* Fond doré très clair */
+      --gold-100:#F4EADA;    /* Section alternée */
+      --ink:#0F172A;         /* Texte principal */
+      --ink-2:#334155;       /* Texte secondaire */
+      --white:#fff;
+      --border:rgba(15,23,42,.12);
       --shadow:0 18px 40px rgba(2,13,33,.08);
-      --radius:18px;
+      --radius:16px;
       --radius-lg:22px;
-      --radius-pill:9999px;
+      --pill:9999px;
       --focus:0 0 0 3px rgba(201,168,106,.35), 0 0 0 6px rgba(14,44,99,.20);
     }
 
@@ -36,22 +45,22 @@
       margin:0;
       background:linear-gradient(180deg,var(--gold-50),#fff 60%);
       color:var(--ink);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji",sans-serif;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
       line-height:1.45;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
-    img{ max-width:100%; display:block }
     a{ color:inherit; text-decoration:none }
-    .container{ width:min(1120px, 92%); margin-inline:auto }
+    img{ max-width:100%; display:block }
+    .container{ width:min(1120px,92%); margin-inline:auto }
 
-    /* ====== Header ====== */
+    /* ===== Header ===== */
     .site-header{
-      position:sticky; top:0; z-index:30;
+      position:sticky; top:0; z-index:40;
       background:
         radial-gradient(1200px 180px at 50% -40px, rgba(255,255,255,.35), transparent 60%),
         var(--brand);
-      color:var(--white);
+      color:#fff;
       border-bottom:1px solid rgba(255,255,255,.08);
       backdrop-filter:saturate(140%) blur(6px);
     }
@@ -59,123 +68,97 @@
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0;
     }
-    .brand-wrap{
-      display:flex; align-items:center; gap:12px;
-    }
+    .brand-wrap{ display:flex; align-items:center; gap:12px }
     .logo-pill{
       display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border-radius:var(--radius-pill);
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.22);
+      padding:8px 12px; border-radius:var(--pill);
+      background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22);
     }
     .logo-pill img{ height:24px; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.25)) }
-    .nav-cta{
-      display:flex; gap:10px; align-items:center;
+    .tag{
+      display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:var(--pill);
+      background:rgba(201,168,106,.16); color:#5d4a23; border:1px solid rgba(201,168,106,.35);
+      font-weight:600; font-size:13px;
     }
+    .nav-cta{ display:flex; gap:10px; align-items:center }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 18px; border-radius:12px; font-weight:600; border:1px solid transparent;
+      padding:12px 18px; border-radius:12px; font-weight:700; border:1px solid transparent; cursor:pointer;
       transition:transform .04s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
-      cursor:pointer;
     }
     .btn:focus-visible{ outline:none; box-shadow:var(--focus) }
-    .btn-primary{
-      background:var(--gold); color:#1a1a1a;
-      box-shadow:0 10px 24px rgba(201,168,106,.20);
-    }
+    .btn-primary{ background:var(--gold); color:#1a1a1a; box-shadow:0 10px 24px rgba(201,168,106,.20) }
     .btn-primary:hover{ transform:translateY(-1px) }
-    .btn-ghost{
-      color:#fff; border-color:rgba(255,255,255,.35); background:transparent;
-    }
+    .btn-ghost{ color:#fff; border-color:rgba(255,255,255,.35) }
     .btn-ghost:hover{ background:rgba(255,255,255,.08) }
 
-    /* ====== Hero ====== */
+    /* ===== Hero ===== */
     .hero{
       background:
         radial-gradient(1000px 300px at 50% 0, rgba(255,255,255,.35), transparent 60%),
         var(--brand);
-      color:#fff;
-      padding:56px 0 48px;
+      color:#fff; padding:56px 0 42px;
     }
-    .hero-grid{
-      display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:center;
-    }
+    .hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:center }
     .eyebrow{
       display:inline-flex; align-items:center; gap:10px;
       font-weight:600; letter-spacing:.02em;
       color:#F9F7F3;
       background:rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.22);
-      padding:8px 12px; border-radius:var(--radius-pill);
+      padding:8px 12px; border-radius:var(--pill);
     }
     .title{
       font-family:"Newsreader",Georgia,serif; font-weight:700; letter-spacing:.2px;
-      font-size:clamp(32px, 4.2vw, 52px); line-height:1.08; margin:14px 0 10px;
+      font-size:clamp(32px,4.2vw,52px); line-height:1.08; margin:14px 0 10px;
     }
-    .subtitle{
-      font-size:clamp(16px,1.6vw,18px); color:#EEF2FF; opacity:.92;
-      margin:0 0 18px;
-    }
+    .subtitle{ font-size:clamp(16px,1.6vw,18px); color:#EEF2FF; opacity:.92; margin:0 0 18px }
     .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px }
 
     .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.82));
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.85));
       color:var(--ink);
       border:1px solid var(--border);
       border-radius:var(--radius-lg);
       box-shadow:var(--shadow);
       padding:22px;
     }
-    .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px }
     .kpi{
       background:#fff; border:1px solid var(--border); border-radius:14px; padding:16px; text-align:center;
     }
     .kpi strong{ display:block; font-size:24px }
     .kpi span{ color:var(--ink-2); font-size:13px }
 
-    /* ====== Stepper Quiz (inspire Valority) ====== */
-    .quiz{ padding:42px 0 18px }
-    .quiz-head{
-      text-align:center; margin-bottom:22px;
-    }
+    /* ===== Quiz Stepper ===== */
+    .quiz{ padding:40px 0 18px }
+    .quiz-head{ text-align:center; margin-bottom:22px }
     .quiz-title{
       font-family:"Newsreader",Georgia,serif; font-weight:700; color:var(--brand);
       font-size:clamp(26px,3.2vw,36px);
     }
-    .stepper{
-      display:flex; gap:14px; align-items:center; justify-content:center; margin:16px 0 6px;
-    }
+    .stepper{ display:flex; gap:14px; align-items:center; justify-content:center; margin:16px 0 6px }
     .step{
       width:38px; height:38px; border-radius:50%;
-      display:grid; place-items:center; font-weight:600;
+      display:grid; place-items:center; font-weight:700;
       border:1.5px solid var(--gold); background:#fff; color:var(--brand);
     }
     .step.active{ background:var(--gold); color:#1a1a1a; box-shadow:inset 0 0 0 2px #fff }
     .rail{ width:64px; height:2px; background:var(--gold) }
+    .muted{ color:var(--ink-2) }
 
-    .quiz-grid{
-      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:start;
+    .quiz-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:start }
+    .card{ background:#fff; border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px }
+    .label{ font-weight:700; color:var(--brand); letter-spacing:.02em; margin-bottom:8px }
+    .select,.input,.textarea{
+      width:100%; padding:14px; border-radius:12px; border:1px solid var(--border);
+      background:#fff; color:var(--ink); font-size:16px; transition:border-color .2s, box-shadow .2s;
     }
-    .question-card{
-      background:#fff; border:1px solid var(--border); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:22px;
-    }
-    .label{
-      font-weight:700; color:var(--brand); letter-spacing:.02em; margin-bottom:8px;
-    }
-    .select, .input, .textarea{
-      width:100%; padding:14px 14px; border-radius:12px; border:1px solid var(--border);
-      background:#fff; color:var(--ink); font-size:16px;
-      transition:border-color .2s ease, box-shadow .2s ease;
-    }
-    .select:focus, .input:focus, .textarea:focus{ outline:none; box-shadow:var(--focus); border-color:var(--gold) }
-    .choices{
-      display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:10px;
-    }
+    .select:focus,.input:focus,.textarea:focus{ outline:none; border-color:var(--gold); box-shadow:var(--focus) }
+    .choices{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:10px }
     .choice{
       border:1.5px solid var(--brand); color:var(--brand); background:#fff;
-      border-radius:12px; padding:14px; font-weight:600; text-align:center; cursor:pointer;
+      border-radius:12px; padding:14px; font-weight:700; text-align:center; cursor:pointer;
       transition:transform .04s ease, background .2s ease, color .2s ease;
     }
     .choice:hover{ transform:translateY(-1px) }
@@ -187,68 +170,86 @@
       border:1px solid var(--border); border-radius:var(--radius-lg);
       box-shadow:var(--shadow); padding:20px;
     }
-    .aside h4{ margin:0 0 10px; color:var(--brand) }
     .bullet{ display:flex; gap:10px; margin:8px 0; color:var(--ink-2) }
     .bullet::before{ content:"•"; color:var(--gold); font-weight:900 }
 
-    /* ====== Section “Ce que vous recevez” ====== */
-    .features{ padding:28px 0 10px }
+    /* ===== Trust / Features ===== */
+    .features{ padding:26px 0 6px }
     .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
-    .feature{
-      background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow);
-      padding:18px;
-    }
+    .feature{ background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:18px }
     .feature h3{ margin:0 0 6px; color:var(--brand); font-size:18px }
-    .muted{ color:var(--ink-2) }
 
-    /* ====== FAQ ====== */
+    /* ===== Conseiller card ===== */
+    .advisor{
+      display:grid; grid-template-columns:128px 1fr; gap:16px; align-items:center;
+      background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .avatar{ width:128px; height:128px; border-radius:14px; object-fit:cover; border:1px solid var(--border) }
+    .rating{ color:#C18400; font-weight:700 }
+
+    /* ===== FAQ ===== */
     .faq{ background:var(--gold-100); padding:28px 0 40px; border-top:1px solid var(--border); border-bottom:1px solid var(--border) }
     .accordion{ border:1px solid var(--border); background:#fff; border-radius:14px; overflow:hidden; box-shadow:var(--shadow) }
     .acc-item + .acc-item{ border-top:1px solid var(--border) }
-    .acc-btn{
-      width:100%; text-align:left; background:#fff; border:0; padding:16px 18px;
-      font-weight:600; color:var(--brand); cursor:pointer;
-    }
+    .acc-btn{ width:100%; text-align:left; background:#fff; border:0; padding:16px 18px; font-weight:700; color:var(--brand); cursor:pointer }
     .acc-panel{ display:none; padding:0 18px 16px; color:var(--ink-2) }
     .acc-item.open .acc-panel{ display:block }
-    .acc-item.open .acc-btn{ background:linear-gradient(180deg,#fff, #fbfbfb) }
+    .acc-item.open .acc-btn{ background:linear-gradient(180deg,#fff,#fbfbfb) }
 
-    /* ====== Footer ====== */
-    .site-footer{ color:#fff; background:var(--brand); padding:28px 0; margin-top:28px; }
-    .cols{ display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px }
-    .copyright{ border-top:1px solid rgba(255,255,255,.15); margin-top:18px; padding-top:16px; color:#E7ECF8 }
-
-    /* ====== Utilities ====== */
-    .mt-8{ margin-top:8px } .mt-12{ margin-top:12px } .mt-16{ margin-top:16px } .mt-20{ margin-top:20px }
-    .mb-0{ margin-bottom:0 } .center{ text-align:center }
-    .tag{
-      display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:var(--radius-pill);
-      background:rgba(201,168,106,.16); color:#5d4a23; border:1px solid rgba(201,168,106,.35); font-weight:600; font-size:13px;
+    /* ===== Sticky CTA (mobile) ===== */
+    .sticky-cta{
+      position:fixed; left:0; right:0; bottom:0; z-index:50;
+      display:none; padding:10px; background:rgba(255,255,255,.88); backdrop-filter:blur(8px);
+      border-top:1px solid var(--border);
     }
+    .sticky-cta .btn{ flex:1 }
+
+    /* ===== Footer ===== */
+    .site-footer{ color:#fff; background:var(--brand); padding:28px 0; margin-top:26px }
+    .cols{ display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px }
+    .copyright{ border-top:1px solid rgba(255,255,255,.15); margin-top:16px; padding-top:14px; color:#E7ECF8 }
+
+    /* Utilities */
+    .mt-8{ margin-top:8px } .mt-12{ margin-top:12px } .mt-16{ margin-top:16px } .mt-20{ margin-top:20px }
+    .center{ text-align:center }
 
     /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid, .quiz-grid, .cols{ grid-template-columns:1fr; }
-      .kpis{ grid-template-columns:1fr 1fr 1fr }
+    @media (max-width:980px){
+      .hero-grid, .quiz-grid, .grid-3, .cols{ grid-template-columns:1fr }
       .choices{ grid-template-columns:1fr }
-      .grid-3{ grid-template-columns:1fr }
       .aside{ position:relative; top:auto }
+      .sticky-cta{ display:block }
     }
   </style>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FinancialService",
+    "name":"Conseiller partenaire Valority",
+    "areaServed":"FR",
+    "url":"https://ton-domaine.fr",
+    "logo":"https://ton-domaine.fr/assets/logo.svg",
+    "description":"Audit fiscal gratuit, défiscalisation, PER, assurance-vie, immobilier locatif.",
+    "telephone":"+33600000000",
+    "sameAs":[]
+  }
+  </script>
 </head>
 
 <body>
-  <!-- ===== Header ===== -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container nav">
       <a class="brand-wrap" href="#">
         <span class="logo-pill">
-          <!-- Utilise l’un des deux logos selon tes assets -->
-          <img src="assets/logo-white.svg" alt="Valority — partenaire" />
+          <!-- Remplace par tes assets -->
+          <img src="/assets/logo-white.svg" alt="Valority — partenaire" />
         </span>
-        <span class="tag" title="Partenaire indépendant">Partenaire indépendant</span>
+        <span class="tag">Partenaire indépendant</span>
       </a>
-
       <nav class="nav-cta">
         <a class="btn btn-ghost" href="#faq">Questions</a>
         <a class="btn btn-primary" href="#form">Obtenir ma simulation</a>
@@ -256,7 +257,7 @@
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -267,8 +268,7 @@
           <a class="btn btn-primary" href="#form">Obtenir ma simulation</a>
           <a class="btn btn-ghost" href="#quiz">Je vérifie mon profil</a>
         </div>
-
-        <div class="kpis mt-16" aria-label="Indicateurs clés">
+        <div class="kpis">
           <div class="kpi"><strong>15 min</strong><span>pour votre audit</span></div>
           <div class="kpi"><strong>100%</strong><span>accompagnement indépendant</span></div>
           <div class="kpi"><strong>24h</strong><span>réponse garantie</span></div>
@@ -283,12 +283,21 @@
           <li>Projection retraite et rendement</li>
           <li>Stratégie simple, 100% conforme</li>
         </ul>
+        <div class="mt-16 advisor">
+          <img class="avatar" src="/assets/advisor.jpg" alt="Votre conseiller" />
+          <div>
+            <div class="label" style="margin:0">Votre conseiller</div>
+            <div class="mt-8" style="font-weight:700">Martin Diouf</div>
+            <div class="muted">Conseiller partenaire — Haute-Savoie</div>
+            <div class="mt-8 rating">★★★★★</div>
+          </div>
+        </div>
         <a class="btn btn-primary mt-16" href="#form">Commencer maintenant</a>
       </aside>
     </div>
   </section>
 
-  <!-- ===== Quiz / Stepper façon Valority ===== -->
+  <!-- Quiz / Stepper -->
   <section id="quiz" class="quiz container">
     <div class="quiz-head">
       <div class="quiz-title">Trouver ma <span style="color:var(--brand)">solution patrimoniale</span></div>
@@ -301,14 +310,14 @@
     </div>
 
     <div class="quiz-grid">
-      <div class="question-card">
+      <div class="card">
         <label class="label" for="objectif">Je souhaite*</label>
         <select id="objectif" class="select" required>
           <option value="">— Choisissez un objectif —</option>
-          <option value="constituer">Constituer mon capital</option>
-          <option value="defiscaliser">Réduire mes impôts</option>
-          <option value="retraite">Préparer ma retraite</option>
-          <option value="transmettre">Transmettre mon patrimoine</option>
+          <option>Constituer mon capital</option>
+          <option>Réduire mes impôts</option>
+          <option>Préparer ma retraite</option>
+          <option>Transmettre mon patrimoine</option>
         </select>
 
         <div class="mt-16 label">Quelles sont vos connaissances en placement ?*</div>
@@ -332,36 +341,36 @@
       </div>
 
       <aside class="aside" aria-label="Pourquoi ces questions">
-        <h4>Pourquoi ces questions ?</h4>
-        <div class="bullet">Pour adapter la solution à votre situation (objectif, horizon, risque).</div>
-        <div class="bullet">Pour quantifier l’impact fiscal et le rendement attendu.</div>
-        <div class="bullet">Pour simplifier la mise en œuvre, sans jargon inutile.</div>
+        <h4 class="label" style="margin:0">Pourquoi ces questions ?</h4>
+        <div class="bullet">Adapter la solution à votre situation (objectif, horizon, risque).</div>
+        <div class="bullet">Chiffrer l’impact fiscal et le rendement attendu.</div>
+        <div class="bullet">Simplifier la mise en œuvre, sans jargon.</div>
         <div class="mt-12"><span class="tag">Données confidentielles</span></div>
       </aside>
     </div>
   </section>
 
-  <!-- ===== Features ===== -->
+  <!-- Features / Trust -->
   <section class="features container">
     <div class="grid-3">
       <div class="feature">
         <h3>Audit clair & chiffré</h3>
-        <p class="muted">Vous repartez avec une feuille de route applicable immédiatement.</p>
+        <p class="muted">Feuille de route applicable immédiatement.</p>
       </div>
       <div class="feature">
         <h3>Solutions éprouvées</h3>
-        <p class="muted">PER, assurance-vie, SCPI, LMNP… toujours aligné avec votre profil.</p>
+        <p class="muted">PER, assurance-vie, SCPI, LMNP… adaptées à votre profil.</p>
       </div>
       <div class="feature">
         <h3>Accompagnement indépendant</h3>
-        <p class="muted">Pas de bla-bla : des chiffres, de la pédagogie, des résultats.</p>
+        <p class="muted">Des chiffres, de la pédagogie, des résultats.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Formulaire principal ===== -->
+  <!-- Form -->
   <section id="form" class="container" style="padding:24px 0 8px">
-    <div class="question-card">
+    <div class="card">
       <div class="label">Recevoir ma simulation gratuite</div>
       <p class="muted mt-8">Réponse sous 24h. Vos données restent confidentielles.</p>
 
@@ -390,7 +399,7 @@
 
         <div class="mt-16">
           <label class="label" for="message">Votre objectif ou question</label>
-          <textarea id="message" class="textarea" rows="4" placeholder="Décrivez brièvement votre besoin (ex : défiscaliser 5 000 €/an, préparer retraite…)"></textarea>
+          <textarea id="message" class="textarea" rows="4" placeholder="Ex : défiscaliser 5 000 €/an, préparer la retraite…"></textarea>
         </div>
 
         <div class="mt-16" style="display:flex; gap:10px; align-items:center">
@@ -408,47 +417,55 @@
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
+  <!-- FAQ -->
   <section id="faq" class="faq">
     <div class="container">
       <h2 class="quiz-title center">Questions fréquentes</h2>
       <div class="accordion mt-16" role="region" aria-label="FAQ">
         <div class="acc-item">
           <button class="acc-btn" type="button">Est-ce vraiment gratuit et sans engagement ?</button>
-          <div class="acc-panel">Oui. L’audit est offert afin d’évaluer si nous pouvons vous apporter de la valeur. Vous décidez ensuite librement de la suite.</div>
+          <div class="acc-panel">Oui. L’audit est offert pour évaluer la valeur que nous pouvons vous apporter. Vous décidez ensuite librement.</div>
         </div>
         <div class="acc-item">
           <button class="acc-btn" type="button">Combien puis-je économiser cette année ?</button>
-          <div class="acc-panel">Cela dépend de votre situation (revenus, foyer, objectifs). La simulation chiffre vos économies potentielles et le plan d’action.</div>
+          <div class="acc-panel">Selon votre situation (revenus, foyer, objectifs). La simulation chiffre vos économies potentielles et le plan d’action.</div>
         </div>
         <div class="acc-item">
           <button class="acc-btn" type="button">Proposez-vous uniquement des produits Valority ?</button>
-          <div class="acc-panel">Nous travaillons en indépendant, avec des solutions éprouvées et conformes, adaptées à votre profil (PER, AV, SCPI, immobilier, etc.).</div>
+          <div class="acc-panel">Accompagnement indépendant, solutions éprouvées et conformes : PER, assurance-vie, SCPI, immobilier, etc.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
+  <!-- Sticky CTA mobile -->
+  <div class="sticky-cta">
+    <div class="container" style="display:flex; gap:10px">
+      <a class="btn btn-primary" href="#form">Obtenir ma simulation</a>
+      <a class="btn" style="border:1px solid var(--border)" href="#quiz">Vérifier mon profil</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="cols">
         <div>
           <div class="brand-wrap">
-            <span class="logo-pill"><img src="assets/logo-white.svg" alt="Valority — partenaire" /></span>
+            <span class="logo-pill"><img src="/assets/logo-white.svg" alt="Valority — partenaire" /></span>
             <strong>Conseiller partenaire — indépendant</strong>
           </div>
           <p class="mt-12" style="max-width:520px; color:#E7ECF8">Accompagnement pédagogique et chiffré pour optimiser impôt, retraite et épargne.</p>
         </div>
         <div>
           <div class="label" style="color:#fff">Contact</div>
-          <p class="mb-0">email@exemple.com</p>
-          <p class="mb-0">+33 6 12 34 56 78</p>
+          <p class="mt-8" style="margin:0">email@exemple.com</p>
+          <p style="margin:0">+33 6 12 34 56 78</p>
         </div>
         <div>
           <div class="label" style="color:#fff">Légal</div>
-          <p class="mb-0">Mentions légales</p>
-          <p class="mb-0">Politique de confidentialité</p>
+          <p class="mt-8" style="margin:0">Mentions légales</p>
+          <p style="margin:0">Politique de confidentialité</p>
         </div>
       </div>
       <div class="copyright">
@@ -457,11 +474,24 @@
     </div>
   </footer>
 
+  <!-- Cookie banner simple -->
+  <div id="cookie" style="position:fixed; left:0; right:0; bottom:0; z-index:60; display:none">
+    <div class="container" style="margin-bottom:10px">
+      <div style="background:#fff; border:1px solid var(--border); box-shadow:var(--shadow); border-radius:12px; padding:14px; display:flex; gap:12px; align-items:center; justify-content:space-between">
+        <div class="muted">Nous utilisons des cookies de mesure d’audience. <a href="#" style="text-decoration:underline">En savoir plus</a></div>
+        <div style="display:flex; gap:8px">
+          <button class="btn" style="border:1px solid var(--border)" onclick="dismissCookie()">Refuser</button>
+          <button class="btn btn-primary" onclick="acceptCookie()">Accepter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Year
+    // Année footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Quiz choice toggle
+    // Quiz: niveaux
     const group = document.getElementById('k-level');
     if(group){
       group.addEventListener('click', e=>{
@@ -473,18 +503,15 @@
 
     // Accordion
     document.querySelectorAll('.acc-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const item = btn.parentElement;
-        item.classList.toggle('open');
-      });
+      btn.addEventListener('click', ()=> btn.parentElement.classList.toggle('open'));
     });
 
-    // Logo fallback for light header (if needed on non-blue pages)
-    // document.querySelectorAll('.logo-pill img').forEach(img=>{
-    //   if(window.matchMedia('(prefers-color-scheme: light)').matches){
-    //     img.src = 'assets/logo-dark.svg';
-    //   }
-    // });
+    // Cookie banner (simple)
+    const CKEY='cookie-consent-v1';
+    function showCookie(){ if(!localStorage.getItem(CKEY)) document.getElementById('cookie').style.display='block' }
+    function acceptCookie(){ localStorage.setItem(CKEY,'yes'); dismissCookie() }
+    function dismissCookie(){ document.getElementById('cookie').style.display='none' }
+    showCookie();
   </script>
 </body>
 </html>
