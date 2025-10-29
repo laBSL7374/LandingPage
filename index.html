@@ -1,167 +1,490 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Valority • Réduisez vos impôts en 2025 — Simulation gratuite</title>
-  <meta name="description" content="Audit fiscal gratuit en 15 minutes. Simulation immédiate de vos économies (PER, assurance-vie, épargne) avec un conseiller partenaire Valority.">
-  <meta property="og:title" content="Réduisez vos impôts — Simulation gratuite">
-  <meta property="og:description" content="Audit en 15 minutes. Conseiller partenaire Valority.">
-  <meta property="og:type" content="website">
-  <meta name="robots" content="index,follow">
-  <link rel="icon" href="/assets/logo.svg">
-  <style>
-    
-  :root{
-    /* === Palette (modifiable) ===
-       Remplace ces codes par les codes officiels Valority si besoin */
-    --brand:#0e2c63;        /* Navy Valority (haut de page */
-    --gold:#C9A86A;         /* Doré principal */
-    --gold-100:#F7F1E4;       /* Doré très clair pour le fond global */
-    --gold-200:#EFE2C7;       /* Doré clair (sections) */
-    --ink:#0F172A;            /* Texte principal (slate-900) */
-    --ink-muted:#334155;      /* Texte secondaire */
-    --card:#FFFFFF;           /* Fond des cartes/blocs */
-    --border:rgba(15,23,42,.12);
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Réduisez vos impôts — Simulation gratuite | Partenaire Valority</title>
+  <meta name="description" content="Audit fiscal gratuit en 15 minutes. Simulation personnalisée (PER, assurance-vie, épargne, immobilier) avec un conseiller partenaire Valority. 100% légal. Sans engagement." />
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--gold-100);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
-    a{color:var(--brand-2);text-decoration:none}
-    header.hero{background:linear-gradient(120deg,var(--brand) 0%, #0a2250 60%);color:#fff;padding:36px 16px 24px}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .nav img{height:34px}
-    .badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:999px;font-size:12px;margin-right:8px}
-    .hero h1{font-size:34px;margin:14px 0 8px}
-    .hero p.sub{opacity:.95;margin:0 0 10px;font-size:18px}
-    .grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:22px}
-    @media(min-width:980px){.grid{grid-template-columns:1.1fr .9fr}}
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;box-shadow:0 10px 28px rgba(2,6,23,.06)}
-    .card .pad{padding:22px}
-    h2{font-size:22px;margin:0 0 8px}
-    ul.check{margin:6px 0 0 18px}
-    .muted{color:var(--muted)}
-    .cta{display:inline-block;background:var(--brand-2);color:#fff;font-weight:700;padding:14px 18px;border-radius:12px;border:0;cursor:pointer}
-    .cta.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
-    form label{display:block;font-size:14px;margin:10px 0 6px}
-    input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--ring);border-radius:12px;font-size:15px}
-    .consent{display:flex;gap:10px;align-items:flex-start;margin-top:8px;font-size:13px}
-    footer{margin-top:32px;padding:28px 16px;text-align:center;color:var(--muted)}
-    .cols3{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:900px){.cols3{grid-template-columns:repeat(3,1fr)}}
-    .stat{text-align:center;padding:16px;border-radius:12px;border:1px solid var(--ring);background:#fff}
-    .stat strong{display:block;font-size:28px;color:var(--brand)}
-    .legal-links{
-      display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
-    .divider{height:1px;background:var(--ring);margin:24px 0}
+  <!-- Fonts (sobre & premium) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====== Design System ====== */
+    :root{
+      --brand:#0e2c63;        /* Navy Valority */
+      --gold:#C9A86A;         /* Doré principal */
+      --gold-50:#FBF7EE;      /* Doré très clair (fond global) */
+      --gold-100:#F4EADA;     /* Doré clair (sections alternées) */
+      --ink:#0F172A;          /* Texte principal */
+      --ink-2:#334155;        /* Texte secondaire */
+      --white:#ffffff;
+      --card:#ffffff;
+      --border:rgba(15,23,42,.10);
+      --shadow:0 18px 40px rgba(2,13,33,.08);
+      --radius:18px;
+      --radius-lg:22px;
+      --radius-pill:9999px;
+      --focus:0 0 0 3px rgba(201,168,106,.35), 0 0 0 6px rgba(14,44,99,.20);
+    }
+
+    /* Reset + base */
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--gold-50),#fff 60%);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji",sans-serif;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{ max-width:100%; display:block }
+    a{ color:inherit; text-decoration:none }
+    .container{ width:min(1120px, 92%); margin-inline:auto }
+
+    /* ====== Header ====== */
+    .site-header{
+      position:sticky; top:0; z-index:30;
+      background:
+        radial-gradient(1200px 180px at 50% -40px, rgba(255,255,255,.35), transparent 60%),
+        var(--brand);
+      color:var(--white);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter:saturate(140%) blur(6px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand-wrap{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo-pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:var(--radius-pill);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.22);
+    }
+    .logo-pill img{ height:24px; width:auto; filter:drop-shadow(0 1px 2px rgba(0,0,0,.25)) }
+    .nav-cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 18px; border-radius:12px; font-weight:600; border:1px solid transparent;
+      transition:transform .04s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      cursor:pointer;
+    }
+    .btn:focus-visible{ outline:none; box-shadow:var(--focus) }
+    .btn-primary{
+      background:var(--gold); color:#1a1a1a;
+      box-shadow:0 10px 24px rgba(201,168,106,.20);
+    }
+    .btn-primary:hover{ transform:translateY(-1px) }
+    .btn-ghost{
+      color:#fff; border-color:rgba(255,255,255,.35); background:transparent;
+    }
+    .btn-ghost:hover{ background:rgba(255,255,255,.08) }
+
+    /* ====== Hero ====== */
+    .hero{
+      background:
+        radial-gradient(1000px 300px at 50% 0, rgba(255,255,255,.35), transparent 60%),
+        var(--brand);
+      color:#fff;
+      padding:56px 0 48px;
+    }
+    .hero-grid{
+      display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      font-weight:600; letter-spacing:.02em;
+      color:#F9F7F3;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.22);
+      padding:8px 12px; border-radius:var(--radius-pill);
+    }
+    .title{
+      font-family:"Newsreader",Georgia,serif; font-weight:700; letter-spacing:.2px;
+      font-size:clamp(32px, 4.2vw, 52px); line-height:1.08; margin:14px 0 10px;
+    }
+    .subtitle{
+      font-size:clamp(16px,1.6vw,18px); color:#EEF2FF; opacity:.92;
+      margin:0 0 18px;
+    }
+    .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.82));
+      color:var(--ink);
+      border:1px solid var(--border);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .kpi{
+      background:#fff; border:1px solid var(--border); border-radius:14px; padding:16px; text-align:center;
+    }
+    .kpi strong{ display:block; font-size:24px }
+    .kpi span{ color:var(--ink-2); font-size:13px }
+
+    /* ====== Stepper Quiz (inspire Valority) ====== */
+    .quiz{ padding:42px 0 18px }
+    .quiz-head{
+      text-align:center; margin-bottom:22px;
+    }
+    .quiz-title{
+      font-family:"Newsreader",Georgia,serif; font-weight:700; color:var(--brand);
+      font-size:clamp(26px,3.2vw,36px);
+    }
+    .stepper{
+      display:flex; gap:14px; align-items:center; justify-content:center; margin:16px 0 6px;
+    }
+    .step{
+      width:38px; height:38px; border-radius:50%;
+      display:grid; place-items:center; font-weight:600;
+      border:1.5px solid var(--gold); background:#fff; color:var(--brand);
+    }
+    .step.active{ background:var(--gold); color:#1a1a1a; box-shadow:inset 0 0 0 2px #fff }
+    .rail{ width:64px; height:2px; background:var(--gold) }
+
+    .quiz-grid{
+      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:start;
+    }
+    .question-card{
+      background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:22px;
+    }
+    .label{
+      font-weight:700; color:var(--brand); letter-spacing:.02em; margin-bottom:8px;
+    }
+    .select, .input, .textarea{
+      width:100%; padding:14px 14px; border-radius:12px; border:1px solid var(--border);
+      background:#fff; color:var(--ink); font-size:16px;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .select:focus, .input:focus, .textarea:focus{ outline:none; box-shadow:var(--focus); border-color:var(--gold) }
+    .choices{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:10px;
+    }
+    .choice{
+      border:1.5px solid var(--brand); color:var(--brand); background:#fff;
+      border-radius:12px; padding:14px; font-weight:600; text-align:center; cursor:pointer;
+      transition:transform .04s ease, background .2s ease, color .2s ease;
+    }
+    .choice:hover{ transform:translateY(-1px) }
+    .choice.active{ background:var(--brand); color:#fff }
+
+    .aside{
+      position:sticky; top:92px;
+      background:linear-gradient(180deg,#fff, #fff0);
+      border:1px solid var(--border); border-radius:var(--radius-lg);
+      box-shadow:var(--shadow); padding:20px;
+    }
+    .aside h4{ margin:0 0 10px; color:var(--brand) }
+    .bullet{ display:flex; gap:10px; margin:8px 0; color:var(--ink-2) }
+    .bullet::before{ content:"•"; color:var(--gold); font-weight:900 }
+
+    /* ====== Section “Ce que vous recevez” ====== */
+    .features{ padding:28px 0 10px }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
+    .feature{
+      background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .feature h3{ margin:0 0 6px; color:var(--brand); font-size:18px }
+    .muted{ color:var(--ink-2) }
+
+    /* ====== FAQ ====== */
+    .faq{ background:var(--gold-100); padding:28px 0 40px; border-top:1px solid var(--border); border-bottom:1px solid var(--border) }
+    .accordion{ border:1px solid var(--border); background:#fff; border-radius:14px; overflow:hidden; box-shadow:var(--shadow) }
+    .acc-item + .acc-item{ border-top:1px solid var(--border) }
+    .acc-btn{
+      width:100%; text-align:left; background:#fff; border:0; padding:16px 18px;
+      font-weight:600; color:var(--brand); cursor:pointer;
+    }
+    .acc-panel{ display:none; padding:0 18px 16px; color:var(--ink-2) }
+    .acc-item.open .acc-panel{ display:block }
+    .acc-item.open .acc-btn{ background:linear-gradient(180deg,#fff, #fbfbfb) }
+
+    /* ====== Footer ====== */
+    .site-footer{ color:#fff; background:var(--brand); padding:28px 0; margin-top:28px; }
+    .cols{ display:grid; grid-template-columns:2fr 1fr 1fr; gap:18px }
+    .copyright{ border-top:1px solid rgba(255,255,255,.15); margin-top:18px; padding-top:16px; color:#E7ECF8 }
+
+    /* ====== Utilities ====== */
+    .mt-8{ margin-top:8px } .mt-12{ margin-top:12px } .mt-16{ margin-top:16px } .mt-20{ margin-top:20px }
+    .mb-0{ margin-bottom:0 } .center{ text-align:center }
+    .tag{
+      display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:var(--radius-pill);
+      background:rgba(201,168,106,.16); color:#5d4a23; border:1px solid rgba(201,168,106,.35); font-weight:600; font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid, .quiz-grid, .cols{ grid-template-columns:1fr; }
+      .kpis{ grid-template-columns:1fr 1fr 1fr }
+      .choices{ grid-template-columns:1fr }
+      .grid-3{ grid-template-columns:1fr }
+      .aside{ position:relative; top:auto }
+    }
   </style>
 </head>
+
 <body>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand-wrap" href="#">
+        <span class="logo-pill">
+          <!-- Utilise l’un des deux logos selon tes assets -->
+          <img src="assets/logo-white.svg" alt="Valority — partenaire" />
+        </span>
+        <span class="tag" title="Partenaire indépendant">Partenaire indépendant</span>
+      </a>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="nav">
-      <img src="/assets/logo.svg" alt="Valority - partenaire">
-      <div class="right">
-        <span class="badge">Conseiller partenaire</span>
-        <span class="badge">100% légal</span>
-        <span class="badge">Sans engagement</span>
+      <nav class="nav-cta">
+        <a class="btn btn-ghost" href="#faq">Questions</a>
+        <a class="btn btn-primary" href="#form">Obtenir ma simulation</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">100% légal • Sans engagement</span>
+        <h1 class="title">Réduisez vos impôts dès cette année</h1>
+        <p class="subtitle">Audit fiscal gratuit en 15 minutes. Simulation personnalisée (PER, assurance-vie, épargne, immobilier).</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#form">Obtenir ma simulation</a>
+          <a class="btn btn-ghost" href="#quiz">Je vérifie mon profil</a>
+        </div>
+
+        <div class="kpis mt-16" aria-label="Indicateurs clés">
+          <div class="kpi"><strong>15 min</strong><span>pour votre audit</span></div>
+          <div class="kpi"><strong>100%</strong><span>accompagnement indépendant</span></div>
+          <div class="kpi"><strong>24h</strong><span>réponse garantie</span></div>
+        </div>
       </div>
-    </div>
 
-    <h1>Réduisez vos impôts dès cette année</h1>
-    <p class="sub">Audit fiscal gratuit en 15 minutes • Simulation personnalisée (PER, assurance‑vie, épargne, immobilier).</p>
-    <div style="margin-top:12px">
-      <a class="cta secondary" href="#form">Obtenir ma simulation</a>
-    </div>
-  </div>
-</header>
-
-<main class="wrap" style="margin-top:18px">
-  <section class="grid">
-    <article class="card">
-      <div class="pad">
-        <h2>Ce que vous recevez</h2>
-        <p class="muted">Une évaluation claire, chiffrée et applicable immédiatement :</p>
-        <ul class="check">
-          <li>Économies d'impôt possibles cette année</li>
+      <aside class="hero-card" aria-label="Résumé de l’offre">
+        <div class="label">Ce que vous recevez</div>
+        <ul class="mt-8" style="padding-left:18px; margin:0">
+          <li>Économies d’impôt possibles cette année</li>
           <li>Meilleure solution selon votre profil (salarié, indépendant, dirigeant)</li>
           <li>Projection retraite et rendement</li>
           <li>Stratégie simple, 100% conforme</li>
         </ul>
+        <a class="btn btn-primary mt-16" href="#form">Commencer maintenant</a>
+      </aside>
+    </div>
+  </section>
 
-        <div class="divider"></div>
-        <div class="cols3">
-          <div class="stat"><strong>15 min</strong><span>pour votre audit</span></div>
-          <div class="stat"><strong>100%</strong><span>accompagnement indépendant</span></div>
-          <div class="stat"><strong>24h</strong><span>réponse garantie</span></div>
+  <!-- ===== Quiz / Stepper façon Valority ===== -->
+  <section id="quiz" class="quiz container">
+    <div class="quiz-head">
+      <div class="quiz-title">Trouver ma <span style="color:var(--brand)">solution patrimoniale</span></div>
+      <div class="stepper" role="tablist" aria-label="Étapes">
+        <div class="step active" aria-current="step">1</div><div class="rail"></div>
+        <div class="step">2</div><div class="rail"></div>
+        <div class="step">3</div>
+      </div>
+      <div class="muted">Mon projet patrimonial</div>
+    </div>
+
+    <div class="quiz-grid">
+      <div class="question-card">
+        <label class="label" for="objectif">Je souhaite*</label>
+        <select id="objectif" class="select" required>
+          <option value="">— Choisissez un objectif —</option>
+          <option value="constituer">Constituer mon capital</option>
+          <option value="defiscaliser">Réduire mes impôts</option>
+          <option value="retraite">Préparer ma retraite</option>
+          <option value="transmettre">Transmettre mon patrimoine</option>
+        </select>
+
+        <div class="mt-16 label">Quelles sont vos connaissances en placement ?*</div>
+        <div class="choices" id="k-level">
+          <button type="button" class="choice">Débutant</button>
+          <button type="button" class="choice">Intermédiaire</button>
+          <button type="button" class="choice">Expert</button>
+        </div>
+
+        <div class="mt-16">
+          <label class="label" for="budget">Budget d’épargne mensuelle souhaité</label>
+          <input id="budget" class="input" type="number" inputmode="numeric" placeholder="Ex : 300 €" />
+        </div>
+
+        <div class="mt-16">
+          <label class="label" for="comment">Commentaires (optionnel)</label>
+          <textarea id="comment" class="textarea" rows="4" placeholder="Contexte, horizon, contraintes…"></textarea>
+        </div>
+
+        <a class="btn btn-primary mt-16" href="#form">Étape suivante</a>
+      </div>
+
+      <aside class="aside" aria-label="Pourquoi ces questions">
+        <h4>Pourquoi ces questions ?</h4>
+        <div class="bullet">Pour adapter la solution à votre situation (objectif, horizon, risque).</div>
+        <div class="bullet">Pour quantifier l’impact fiscal et le rendement attendu.</div>
+        <div class="bullet">Pour simplifier la mise en œuvre, sans jargon inutile.</div>
+        <div class="mt-12"><span class="tag">Données confidentielles</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section class="features container">
+    <div class="grid-3">
+      <div class="feature">
+        <h3>Audit clair & chiffré</h3>
+        <p class="muted">Vous repartez avec une feuille de route applicable immédiatement.</p>
+      </div>
+      <div class="feature">
+        <h3>Solutions éprouvées</h3>
+        <p class="muted">PER, assurance-vie, SCPI, LMNP… toujours aligné avec votre profil.</p>
+      </div>
+      <div class="feature">
+        <h3>Accompagnement indépendant</h3>
+        <p class="muted">Pas de bla-bla : des chiffres, de la pédagogie, des résultats.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Formulaire principal ===== -->
+  <section id="form" class="container" style="padding:24px 0 8px">
+    <div class="question-card">
+      <div class="label">Recevoir ma simulation gratuite</div>
+      <p class="muted mt-8">Réponse sous 24h. Vos données restent confidentielles.</p>
+
+      <form class="mt-16" onsubmit="event.preventDefault(); document.getElementById('ok').style.display='block'; this.reset(); window.scrollTo({top:document.getElementById('ok').offsetTop-100, behavior:'smooth'});">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+          <div>
+            <label class="label" for="name">Nom et prénom*</label>
+            <input id="name" class="input" type="text" required placeholder="Votre nom complet" />
+          </div>
+          <div>
+            <label class="label" for="email">Email*</label>
+            <input id="email" class="input" type="email" required placeholder="exemple@email.com" />
+          </div>
+          <div>
+            <label class="label" for="phone">Téléphone*</label>
+            <input id="phone" class="input" type="tel" required placeholder="+33 6 12 34 56 78" />
+          </div>
+          <div>
+            <label class="label" for="status">Statut</label>
+            <select id="status" class="select">
+              <option value="">— Choisissez —</option>
+              <option>Salarié</option><option>Indépendant</option><option>Dirigeant</option><option>Fonction publique</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-16">
+          <label class="label" for="message">Votre objectif ou question</label>
+          <textarea id="message" class="textarea" rows="4" placeholder="Décrivez brièvement votre besoin (ex : défiscaliser 5 000 €/an, préparer retraite…)"></textarea>
+        </div>
+
+        <div class="mt-16" style="display:flex; gap:10px; align-items:center">
+          <input id="rgpd" type="checkbox" required />
+          <label for="rgpd" class="muted">J’accepte d’être recontacté·e et la politique de confidentialité.</label>
+        </div>
+
+        <button class="btn btn-primary mt-16" type="submit">Envoyer ma demande</button>
+      </form>
+
+      <div id="ok" class="mt-16" style="display:none">
+        <span class="tag">Merci !</span>
+        <p class="muted mt-8">Votre demande a bien été transmise. Nous revenons vers vous sous 24h.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="quiz-title center">Questions fréquentes</h2>
+      <div class="accordion mt-16" role="region" aria-label="FAQ">
+        <div class="acc-item">
+          <button class="acc-btn" type="button">Est-ce vraiment gratuit et sans engagement ?</button>
+          <div class="acc-panel">Oui. L’audit est offert afin d’évaluer si nous pouvons vous apporter de la valeur. Vous décidez ensuite librement de la suite.</div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" type="button">Combien puis-je économiser cette année ?</button>
+          <div class="acc-panel">Cela dépend de votre situation (revenus, foyer, objectifs). La simulation chiffre vos économies potentielles et le plan d’action.</div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn" type="button">Proposez-vous uniquement des produits Valority ?</button>
+          <div class="acc-panel">Nous travaillons en indépendant, avec des solutions éprouvées et conformes, adaptées à votre profil (PER, AV, SCPI, immobilier, etc.).</div>
         </div>
       </div>
-    </article>
+    </div>
+  </section>
 
-    <aside class="card" id="form" aria-labelledby="formTitle">
-      <div class="pad">
-        <h2 id="formTitle">Recevoir ma simulation gratuite</h2>
-        <p class="muted" style="margin-top:-4px">Réponse sous 24h. Vos données restent confidentielles.</p>
-
-        <!-- Netlify Forms -->
-        <form name="lead-cgp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html">
-          <input type="hidden" name="form-name" value="lead-cgp">
-          <p style="display:none">
-            <label>Ne pas remplir : <input name="bot-field"></label>
-          </p>
-
-          <label for="name">Nom et prénom</label>
-          <input id="name" name="Nom" type="text" placeholder="Ex : Martin Diouf" required>
-
-          <label for="email">Email</label>
-          <input id="email" name="Email" type="email" placeholder="Ex : nom@email.com" required>
-
-          <label for="phone">Téléphone</label>
-          <input id="phone" name="Téléphone" type="tel" placeholder="Ex : 06 12 34 56 78" required>
-
-          <label for="status">Votre situation</label>
-          <select id="status" name="Situation">
-            <option>Salarié</option>
-            <option>Indépendant / Chef d’entreprise</option>
-            <option>Dirigeant</option>
-            <option>Retraité</option>
-          </select>
-
-          <div class="consent">
-            <input id="consent" type="checkbox" required>
-            <label for="consent">J’accepte d’être recontacté pour recevoir ma simulation personnalisée. Mes données ne sont jamais revendues.</label>
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="cols">
+        <div>
+          <div class="brand-wrap">
+            <span class="logo-pill"><img src="assets/logo-white.svg" alt="Valority — partenaire" /></span>
+            <strong>Conseiller partenaire — indépendant</strong>
           </div>
-
-          <button class="cta" type="submit" style="width:100%;margin-top:10px">Obtenir ma simulation</button>
-        </form>
+          <p class="mt-12" style="max-width:520px; color:#E7ECF8">Accompagnement pédagogique et chiffré pour optimiser impôt, retraite et épargne.</p>
+        </div>
+        <div>
+          <div class="label" style="color:#fff">Contact</div>
+          <p class="mb-0">email@exemple.com</p>
+          <p class="mb-0">+33 6 12 34 56 78</p>
+        </div>
+        <div>
+          <div class="label" style="color:#fff">Légal</div>
+          <p class="mb-0">Mentions légales</p>
+          <p class="mb-0">Politique de confidentialité</p>
+        </div>
       </div>
-    </aside>
-  </section>
-
-  <section class="card" style="margin-top:20px">
-    <div class="pad">
-      <h2>À propos</h2>
-      <p class="muted">Conseiller en gestion de patrimoine indépendant, partenaire Valority. Accompagnement objectif et sur‑mesure pour cadres, entrepreneurs et professions libérales.</p>
+      <div class="copyright">
+        © <span id="year"></span> Partenaire Valority — Tous droits réservés.
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <section style="text-align:center;margin:26px 0">
-    <a class="cta" href="#form">Je veux ma simulation gratuite</a>
-  </section>
-</main>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<footer>
-  <div class="wrap">
-    <div class="legal-links">
-      <a href="/mentions-legales.html">Mentions légales & RGPD</a>
-      <a href="/merci.html">Page de remerciement</a>
-    </div>
-    <div style="margin-top:10px">© 2025 — Conseiller en Gestion de Patrimoine indépendant • Partenaire Valority.</div>
-  </div>
-</footer>
+    // Quiz choice toggle
+    const group = document.getElementById('k-level');
+    if(group){
+      group.addEventListener('click', e=>{
+        const btn = e.target.closest('.choice'); if(!btn) return;
+        [...group.querySelectorAll('.choice')].forEach(x=>x.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    }
 
+    // Accordion
+    document.querySelectorAll('.acc-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const item = btn.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+
+    // Logo fallback for light header (if needed on non-blue pages)
+    // document.querySelectorAll('.logo-pill img').forEach(img=>{
+    //   if(window.matchMedia('(prefers-color-scheme: light)').matches){
+    //     img.src = 'assets/logo-dark.svg';
+    //   }
+    // });
+  </script>
 </body>
 </html>
