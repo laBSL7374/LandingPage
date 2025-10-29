@@ -390,19 +390,29 @@
   <!-- ===== FORMULAIRE ===== -->
   <section id="form" class="form-section">
     <h2>Recevoir mon audit complet</h2>
-    <div class="form-box">
+    <form class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST">
 
-      <input class="input" type="text" placeholder="Nom complet*" required>
-      <input class="input" type="email" placeholder="E-mail*" required style="margin-top:12px;">
-      <input class="input" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
+  <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
+  <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
+  <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
 
-      <button class="btn primary full">Obtenir mon audit</button>
+  <!-- redirection après envoi -->
+  <input type="hidden" name="_next" value="https://TONSITE.fr/merci.html">
 
-      <div class="consent">
-        En validant, vous acceptez d’être recontacté(e) par un conseiller partenaire Valority
-        dans un cadre strictement confidentiel (RGPD).
-      </div>
-    </div>
+  <!-- sujet du mail automatique -->
+  <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
+
+  <!-- pour éviter le spam bot -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <button class="btn primary full" type="submit">Obtenir mon audit</button>
+
+  <div class="consent">
+    En validant, vous acceptez d’être recontacté(e) par un conseiller partenaire Valority
+    dans un cadre strictement confidentiel (RGPD).
+  </div>
+
+</form>
   </section>
 
   <!-- ===== FAQ ===== -->
