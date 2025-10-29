@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<style>
+  body{font-family:"Work Sans", sans-serif; padding:50px; max-width:800px; margin:auto; color:#0e2c63;}
+  h1{font-size:32px;margin-bottom:12px;}
+  a{color:#0e2c63}
+  input,textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #c9a76a;
+    border-radius:10px;
+    margin-top:8px;
+  }
+  button{
+    background:#c9a76a;
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:12px;
+  }
+</style>
+</head>
+
+<body>
+<h1>Contact</h1>
+
+<p>Besoin d’informations ? Une question ? Contactez-nous :</p>
+
+<form action="https://formsubmit.co/TONEMAIL" method="POST">
+  <input type="text" name="Nom" placeholder="Nom" required>
+  <input type="email" name="Email" placeholder="E-mail" required>
+  <textarea name="Message" rows="5" placeholder="Message"></textarea>
+
+  <input type="hidden" name="_subject" value="Contact depuis le site">
+  <input type="hidden" name="_captcha" value="false">
+
+  <button type="submit">Envoyer</button>
+</form>
+
+<p><a href="index.html">← Retour</a></p>
+</body>
+</html>
