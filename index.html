@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Valority • Réduisez vos impôts en 2025 — Simulation gratuite</title>
+  <meta name="description" content="Audit fiscal gratuit en 15 minutes. Simulation immédiate de vos économies (PER, assurance-vie, épargne) avec un conseiller partenaire Valority.">
+  <meta property="og:title" content="Réduisez vos impôts — Simulation gratuite">
+  <meta property="og:description" content="Audit en 15 minutes. Conseiller partenaire Valority.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="/assets/logo.svg">
+  <style>
+    
+  :root{
+    /* === Palette (modifiable) ===
+       Remplace ces codes par les codes officiels Valority si besoin */
+    --brand:#0e2c63;        /* Navy */
+    --brand-2:#15a1a8;      /* Teal accent */
+    --ink:#0f172a;
+    --muted:#475569;
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --ring:#dbe3f1;
+    --ok:#0ea5e9;
+  }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+    a{color:var(--brand-2);text-decoration:none}
+    header.hero{background:linear-gradient(120deg,var(--brand) 0%, #0a2250 60%);color:#fff;padding:36px 16px 24px}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav img{height:34px}
+    .badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:999px;font-size:12px;margin-right:8px}
+    .hero h1{font-size:34px;margin:14px 0 8px}
+    .hero p.sub{opacity:.95;margin:0 0 10px;font-size:18px}
+    .grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:22px}
+    @media(min-width:980px){.grid{grid-template-columns:1.1fr .9fr}}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;box-shadow:0 10px 28px rgba(2,6,23,.06)}
+    .card .pad{padding:22px}
+    h2{font-size:22px;margin:0 0 8px}
+    ul.check{margin:6px 0 0 18px}
+    .muted{color:var(--muted)}
+    .cta{display:inline-block;background:var(--brand-2);color:#fff;font-weight:700;padding:14px 18px;border-radius:12px;border:0;cursor:pointer}
+    .cta.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+    form label{display:block;font-size:14px;margin:10px 0 6px}
+    input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--ring);border-radius:12px;font-size:15px}
+    .consent{display:flex;gap:10px;align-items:flex-start;margin-top:8px;font-size:13px}
+    footer{margin-top:32px;padding:28px 16px;text-align:center;color:var(--muted)}
+    .cols3{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:900px){.cols3{grid-template-columns:repeat(3,1fr)}}
+    .stat{text-align:center;padding:16px;border-radius:12px;border:1px solid var(--ring);background:#fff}
+    .stat strong{display:block;font-size:28px;color:var(--brand)}
+    .legal-links{
+      display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+    .divider{height:1px;background:var(--ring);margin:24px 0}
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="nav">
+      <img src="/assets/logo.svg" alt="Valority - partenaire">
+      <div class="right">
+        <span class="badge">Conseiller partenaire</span>
+        <span class="badge">100% légal</span>
+        <span class="badge">Sans engagement</span>
+      </div>
+    </div>
+
+    <h1>Réduisez vos impôts dès cette année</h1>
+    <p class="sub">Audit fiscal gratuit en 15 minutes • Simulation personnalisée (PER, assurance‑vie, épargne, immobilier).</p>
+    <div style="margin-top:12px">
+      <a class="cta secondary" href="#form">Obtenir ma simulation</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" style="margin-top:18px">
+  <section class="grid">
+    <article class="card">
+      <div class="pad">
+        <h2>Ce que vous recevez</h2>
+        <p class="muted">Une évaluation claire, chiffrée et applicable immédiatement :</p>
+        <ul class="check">
+          <li>Économies d'impôt possibles cette année</li>
+          <li>Meilleure solution selon votre profil (salarié, indépendant, dirigeant)</li>
+          <li>Projection retraite et rendement</li>
+          <li>Stratégie simple, 100% conforme</li>
+        </ul>
+
+        <div class="divider"></div>
+        <div class="cols3">
+          <div class="stat"><strong>15 min</strong><span>pour votre audit</span></div>
+          <div class="stat"><strong>100%</strong><span>accompagnement indépendant</span></div>
+          <div class="stat"><strong>24h</strong><span>réponse garantie</span></div>
+        </div>
+      </div>
+    </article>
+
+    <aside class="card" id="form" aria-labelledby="formTitle">
+      <div class="pad">
+        <h2 id="formTitle">Recevoir ma simulation gratuite</h2>
+        <p class="muted" style="margin-top:-4px">Réponse sous 24h. Vos données restent confidentielles.</p>
+
+        <!-- Netlify Forms -->
+        <form name="lead-cgp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html">
+          <input type="hidden" name="form-name" value="lead-cgp">
+          <p style="display:none">
+            <label>Ne pas remplir : <input name="bot-field"></label>
+          </p>
+
+          <label for="name">Nom et prénom</label>
+          <input id="name" name="Nom" type="text" placeholder="Ex : Martin Diouf" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="Email" type="email" placeholder="Ex : nom@email.com" required>
+
+          <label for="phone">Téléphone</label>
+          <input id="phone" name="Téléphone" type="tel" placeholder="Ex : 06 12 34 56 78" required>
+
+          <label for="status">Votre situation</label>
+          <select id="status" name="Situation">
+            <option>Salarié</option>
+            <option>Indépendant / Chef d’entreprise</option>
+            <option>Dirigeant</option>
+            <option>Retraité</option>
+          </select>
+
+          <div class="consent">
+            <input id="consent" type="checkbox" required>
+            <label for="consent">J’accepte d’être recontacté pour recevoir ma simulation personnalisée. Mes données ne sont jamais revendues.</label>
+          </div>
+
+          <button class="cta" type="submit" style="width:100%;margin-top:10px">Obtenir ma simulation</button>
+        </form>
+      </div>
+    </aside>
+  </section>
+
+  <section class="card" style="margin-top:20px">
+    <div class="pad">
+      <h2>À propos</h2>
+      <p class="muted">Conseiller en gestion de patrimoine indépendant, partenaire Valority. Accompagnement objectif et sur‑mesure pour cadres, entrepreneurs et professions libérales.</p>
+    </div>
+  </section>
+
+  <section style="text-align:center;margin:26px 0">
+    <a class="cta" href="#form">Je veux ma simulation gratuite</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="legal-links">
+      <a href="/mentions-legales.html">Mentions légales & RGPD</a>
+      <a href="/merci.html">Page de remerciement</a>
+    </div>
+    <div style="margin-top:10px">© 2025 — Conseiller en Gestion de Patrimoine indépendant • Partenaire Valority.</div>
+  </div>
+</footer>
+
+</body>
+</html>
