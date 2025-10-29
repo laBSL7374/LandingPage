@@ -15,18 +15,19 @@
   :root{
     /* === Palette (modifiable) ===
        Remplace ces codes par les codes officiels Valority si besoin */
-    --brand:#0e2c63;        /* Navy */
-    --brand-2:#15a1a8;      /* Teal accent */
-    --ink:#0f172a;
-    --muted:#475569;
-    --bg:#f6f8fb;
-    --card:#ffffff;
-    --ring:#dbe3f1;
-    --ok:#0ea5e9;
+    --brand:#0e2c63;        /* Navy Valority (haut de page */
+    --gold:#C9A86A;         /* Doré principal */
+    --gold-100:#F7F1E4;       /* Doré très clair pour le fond global */
+    --gold-200:#EFE2C7;       /* Doré clair (sections) */
+    --ink:#0F172A;            /* Texte principal (slate-900) */
+    --ink-muted:#334155;      /* Texte secondaire */
+    --card:#FFFFFF;           /* Fond des cartes/blocs */
+    --border:rgba(15,23,42,.12);
+    --shadow:0 10px 30px rgba(0,0,0,.08);
   }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+    html,body{margin:0;padding:0;background:var(--gold-100);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
     a{color:var(--brand-2);text-decoration:none}
     header.hero{background:linear-gradient(120deg,var(--brand) 0%, #0a2250 60%);color:#fff;padding:36px 16px 24px}
     .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
