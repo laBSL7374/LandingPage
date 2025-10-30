@@ -311,22 +311,26 @@
 
       <!-- Formulaire -->
       <form class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST">
-        <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
-        <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
-        <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
+  <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
+  <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
+  <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
 
-        <input type="hidden" name="_next" value="https://labs7374.github.io/LandingPage/merci.html">
-        <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
-        <input type="hidden" name="_captcha" value="false">
+  <!-- ✅ Redirection fiable sur GitHub Pages -->
+  <input type="hidden" name="_next" value="./merci.html">
 
-        <button class="btn primary full" type="submit">Obtenir mon audit</button>
+  <!-- Optionnels mais utiles -->
+  <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
 
-        <div class="consent">
-          En validant, vous acceptez d’être recontacté(e) par un conseiller partenaire Valority
-          dans un cadre strictement confidentiel (RGPD).
-        </div>
-      </form>
-    </div>
+  <button class="btn primary full" type="submit">Obtenir mon audit</button>
+
+  <div class="consent">
+    En validant, vous acceptez d’être recontacté(e) par un conseiller partenaire Valority
+    dans un cadre strictement confidentiel (RGPD).
+  </div>
+</form>
+
   </section>
 
   <!-- ===== FAQ ===== -->
