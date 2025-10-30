@@ -39,19 +39,22 @@
     /* ===== HERO ===== */
     .hero{
       background:url('assets/hero.jpg') center/cover no-repeat;
-      min-height:380px;
+      min-height:480px;
       display:flex;
       align-items:center;
       padding:60px 0;
       position:relative;
       color:#fff;
     }
-    .hero-shade{
-      background:rgba(14,44,99,.62);
-      position:absolute; inset:0;
+    .hero::before{
+      content:'';
+      background:rgba(14,44,99,.25);
+      position:absolute;
+      inset:0;
     }
     .hero-wrap{
-      position:relative; z-index:1;
+      position:relative;
+      z-index:1;
       max-width:590px;
       padding:18px;
     }
@@ -60,10 +63,12 @@
       font-size:clamp(32px,4vw,46px);
       font-weight:700;
       margin-bottom:18px;
+      text-shadow:0 2px 8px rgba(0,0,0,.3);
     }
     .hero p{
       font-size:clamp(16px,1.3vw,19px);
       margin-bottom:26px;
+      text-shadow:0 1px 4px rgba(0,0,0,.3);
     }
     .btn{
       display:inline-flex;
@@ -73,6 +78,9 @@
       padding:14px 26px;
       border-radius:var(--radius);
       transition:.25s;
+      cursor:pointer;
+      border:none;
+      font-size:16px;
     }
     .btn.primary{
       background:var(--gold);
@@ -80,6 +88,7 @@
     }
     .btn.primary:hover{
       background:#d1b585;
+      transform:translateY(-2px);
     }
 
     /* ===== POURQUOI ===== */
@@ -112,6 +121,27 @@
       color:var(--brand);
       font-size:22px;
       margin-bottom:8px;
+    }
+
+    /* ===== CALLBACK CTA ===== */
+    .callback-section{
+      background:#fafbfc;
+      padding:60px 0;
+      text-align:center;
+    }
+    .callback-section h2{
+      font-family:'Newsreader',serif;
+      color:#0e2c63;
+      font-size:clamp(26px,3vw,36px);
+      margin-bottom:18px;
+    }
+    .callback-section p{
+      color:#636b75;
+      font-size:18px;
+      margin-bottom:28px;
+      max-width:680px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     /* ===== FORMULAIRE + CONSEILLER ===== */
@@ -151,7 +181,7 @@
       transition:transform .2s ease;
     }
     .advisor a:hover{ transform:scale(1.05); }
-    .advisor-pic{<img src="assets/martin-diouf.jpg" alt="Martin Diouf — Conseiller en gestion de patrimoine indépendant" class="advisor-pic">
+    .advisor-pic{
       width:100%;
       max-width:220px;
       margin:auto;
@@ -162,7 +192,7 @@
       box-shadow:0 6px 14px rgba(0,0,0,.08);
     }
     .advisor-name{ margin-top:12px; font-weight:700; font-size:20px; color:var(--brand); }
-    .advisor-role{ font-size:14px; color:var(--ink-2); }
+    .advisor-role{ font-size:14px; color:var(--ink-2); margin-top:4px; }
     .stars{ margin-top:8px; font-size:18px; letter-spacing:2px; color:var(--gold); }
 
     /* Formulaire */
@@ -183,6 +213,7 @@
       background:#fff;
       font-size:16px;
       transition:border-color .2s, box-shadow .2s;
+      font-family:"Work Sans", sans-serif;
     }
     .input:focus{
       outline:none;
@@ -216,6 +247,10 @@
       border:1px solid var(--border);
       padding:16px 22px;
       cursor:pointer;
+      transition:box-shadow .2s;
+    }
+    .faq-item:hover{
+      box-shadow:var(--shadow);
     }
     .faq-q{
       font-weight:700;
@@ -243,6 +278,7 @@
     /* Responsive */
     @media(max-width:980px){
       .form-two-col{ grid-template-columns:1fr; }
+      .advisor{ max-width:320px; margin:0 auto 28px; }
     }
   </style>
 </head>
@@ -250,11 +286,10 @@
 <body>
 
   <!-- ===== HERO ===== -->
-  <section class="form-section">
-    <div class="hero-shade"></div>
+  <section class="hero">
     <div class="container hero-wrap">
       <h1>Audit patrimonial complet et gratuit avec un conseiller</h1>
-      <p>Découvrez vos solutions d’investissement, fiscalité ou retraite.</p>
+      <p>Découvrez vos solutions d'investissement, fiscalité ou retraite.</p>
       <a href="#form" class="btn primary">Commencer</a>
     </div>
   </section>
@@ -280,70 +315,89 @@
     </div>
   </section>
 
+  <!-- ===== CALLBACK CTA ===== -->
+  <section class="callback-section">
+    <div class="container">
+      <h2>Être rappelé par un conseiller</h2>
+      <p>
+        Laissez vos coordonnées et je vous recontacte personnellement sous 24h
+        pour faire le point sur votre situation et vos objectifs patrimoniaux.
+      </p>
+      <a href="#form" class="btn primary">Être rappelé maintenant</a>
+    </div>
+  </section>
+
   <!-- ===== FORMULAIRE + CONSEILLER ===== -->
-  <!-- ===== ÊTRE RAPPELÉ PAR UN CONSEILLER ===== -->
-<!-- ===== FORMULAIRE + CONSEILLER ===== -->
-<section id="form" class="form-section">
-  <h2>Recevoir mon audit complet</h2>
+  <section id="form" class="form-section">
+    <h2>Demandez votre audit gratuit</h2>
+    
+    <div class="form-two-col">
+      <!-- Bloc conseiller -->
+      <aside class="advisor">
+        <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/martin-diouf.jpg" alt="Martin Diouf — Conseiller patrimonial" class="advisor-pic">
+        </a>
+        <div class="advisor-name">Martin Diouf</div>
+        <div class="advisor-role">Conseiller en gestion de patrimoine indépendant</div>
+        <div class="stars">★★★★★</div>
+      </aside>
 
-  <div class="form-two-col">
-    <!-- Bloc conseiller -->
-    <aside class="advisor">
-      <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener noreferrer">
-        <img src="assets/martin-diouf.jpg" alt="Martin Diouf — Conseiller patrimonial" class="advisor-pic">
-      </a>
-      <div class="advisor-name">Martin Diouf</div>
-      <div class="advisor-role">Conseiller en gestion de patrimoine indépendant</div>
-      <div class="stars">★★★★★</div>
-    </aside>
+      <!-- Formulaire -->
+      <form id="leadForm" class="form-box" action="https://formsubmit.co/ajax/mdiouf@novaffi.fr" method="POST" accept-charset="UTF-8">
+        <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
+        <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
+        <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
 
-    <!-- Formulaire -->
-    <form id="leadForm" class="form-box" action="https://formsubmit.co/ajax/mdiouf@novaffi.fr" method="POST" accept-charset="UTF-8">
-      <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
-      <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
-      <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
-      <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="text" name="_honey" style="display:none">
-      <button id="leadBtn" class="btn primary full" type="submit">Obtenir mon audit</button>
-      <div class="consent">En validant, vous acceptez d’être recontacté(e)…</div>
-    </form>
-  </div>
+        <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
 
-  <!-- Message succès -->
-  <div id="leadSuccess" class="form-box" style="display:none; text-align:center; margin-top:22px;">
-    <h3 style="color:var(--brand); margin-bottom:10px;">Merci, votre demande est bien envoyée ✅</h3>
-    <p style="color:var(--ink-2);">Je vous recontacte personnellement sous 24h…</p>
-    <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener" class="btn" style="margin-top:12px; background:var(--gold); color:#0e2c63;">
-      Voir mon profil LinkedIn
-    </a>
-  </div>
-</section>
+        <button id="leadBtn" class="btn primary full" type="submit">Obtenir mon audit</button>
 
+        <div class="consent">
+          En validant, vous acceptez d'être recontacté(e) par un conseiller partenaire Novaffi
+          dans un cadre strictement confidentiel (RGPD).
+        </div>
+      </form>
+
+      <!-- Zone de confirmation (cachée au départ) -->
+      <div id="leadSuccess" class="form-box" style="display:none; text-align:center;">
+        <h3 style="color:var(--brand); margin-bottom:10px;">Merci, votre demande est bien envoyée ✅</h3>
+        <p style="color:var(--ink-2);">
+          Je vous recontacte personnellement sous 24h pour affiner votre simulation.
+        </p>
+        <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener" class="btn primary" style="margin-top:12px;">
+          Voir mon profil LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== FAQ ===== -->
   <section class="faq-section">
-    <div class="faq-title">Questions fréquentes</div>
+    <div class="container">
+      <div class="faq-title">Questions fréquentes</div>
 
-    <div class="faq-item">
-      <div class="faq-q">L’audit patrimonial est-il vraiment gratuit et sans engagement ?  <span>+</span></div>
-      <div class="faq-a">Oui, complètement. L’audit est offert et sans aucun engagement de votre part.
-      Il s’agit d’une première évaluation personnalisée de votre situation fiscale, financière et patrimoniale.
-      Vous conservez la liberté totale de poursuivre ou non après cette première analyse.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Combien de temps dure le rendez-vous ? <span>+</span></div>
-      <div class="faq-a">Le premier échange dure généralement entre <strong>15 et 20 minutes</strong>.  
-      C’est un temps d’échange convivial pour faire connaissance, comprendre vos objectifs et poser les bases de votre stratégie patrimoniale.  
-      Si vous souhaitez aller plus loin ensuite, un second rendez-vous d’environ une heure est prévu pour approfondir les solutions adaptées à votre profil.
+      <div class="faq-item">
+        <div class="faq-q">L'audit patrimonial est-il vraiment gratuit et sans engagement ? <span>+</span></div>
+        <div class="faq-a">Oui, complètement. L'audit est offert et sans aucun engagement de votre part.
+        Il s'agit d'une première évaluation personnalisée de votre situation fiscale, financière et patrimoniale.
+        Vous conservez la liberté totale de poursuivre ou non après cette première analyse.</div>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <div class="faq-q">Qui me contacte ? <span>+</span></div>
-      <div class="faq-a">Un conseiller indépendant partenaire Novaffi-Valority, certifié et formé aux solutions patrimoniales.</div>
+      <div class="faq-item">
+        <div class="faq-q">Combien de temps dure le rendez-vous ? <span>+</span></div>
+        <div class="faq-a">Le premier échange dure généralement entre <strong>15 et 20 minutes</strong>.  
+        C'est un temps d'échange convivial pour faire connaissance, comprendre vos objectifs et poser les bases de votre stratégie patrimoniale.  
+        Si vous souhaitez aller plus loin ensuite, un second rendez-vous d'environ une heure est prévu pour approfondir les solutions adaptées à votre profil.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Qui me contacte ? <span>+</span></div>
+        <div class="faq-a">Un conseiller indépendant partenaire Novaffi-Valority, certifié et formé aux solutions patrimoniales.</div>
+      </div>
     </div>
   </section>
 
@@ -355,8 +409,9 @@
     <a href="contact.html">Contact</a>
   </footer>
 
-  <!-- JS FAQ -->
+  <!-- ===== SCRIPTS ===== -->
   <script>
+    // FAQ accordion
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click', ()=>{
         const a=item.querySelector('.faq-a');
@@ -365,40 +420,40 @@
         a.style.display=open?'none':'block';
       });
     });
-  </script>
-  <script>
-  (function(){
-    const form = document.getElementById('leadForm');
-    const btn  = document.getElementById('leadBtn');
-    const ok   = document.getElementById('leadSuccess');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      btn.disabled = true;
-      btn.textContent = 'Envoi en cours…';
+    // Form submission
+    (function(){
+      const form = document.getElementById('leadForm');
+      const btn  = document.getElementById('leadBtn');
+      const ok   = document.getElementById('leadSuccess');
 
-      try {
-        const resp = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
-        });
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours…';
 
-        if (resp.ok) {
-          form.style.display = 'none';
-          ok.style.display = 'block';
-        } else {
-          alert("Oups, l'envoi a échoué. Réessayez ou contactez-moi directement.");
+        try {
+          const resp = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          });
+
+          if (resp.ok) {
+            form.style.display = 'none';
+            ok.style.display = 'block';
+          } else {
+            alert("Oups, l'envoi a échoué. Réessayez ou contactez-moi directement.");
+            btn.disabled = false;
+            btn.textContent = 'Obtenir mon audit';
+          }
+        } catch (err) {
+          alert("Connexion momentanément indisponible. Merci de réessayer.");
           btn.disabled = false;
           btn.textContent = 'Obtenir mon audit';
         }
-      } catch (err) {
-        alert("Connexion momentanément indisponible. Merci de réessayer.");
-        btn.disabled = false;
-        btn.textContent = 'Obtenir mon audit';
-      }
-    });
-  })();
-</script>
+      });
+    })();
+  </script>
 </body>
 </html>
