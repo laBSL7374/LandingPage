@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Audit patrimonial gratuit — Valority</title>
 
-  <!-- ====== FONTS ====== -->
-  <link href="https://pin.it/1ZzVNlPMQ" rel="stylesheet"/>
+  <!-- FONTS CORRIGÉES -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&family=Newsreader:wght@300;700&display=swap" rel="stylesheet"/>
 
-  <!-- ====== GLOBAL STYLE ====== -->
   <style>
     :root{
       --brand:#0e2c63;
@@ -31,16 +29,12 @@
     img{max-width:100%; display:block;}
     a{text-decoration:none;}
 
-    .container{
-      width:100%;
-      max-width:1180px;
-      margin:auto;
-      padding:18px;
-    }
+    .container{ width:100%; max-width:1180px; margin:auto; padding:18px; }
 
     /* ===== HERO ===== */
     .hero{
-      background:url('https://www.valority.com/app/uploads/2022/10/Home-header.png') center/cover no-repeat;
+      /* ➜ CHANGE ICI l'image de fond */
+      background:url('assets/hero.jpg') center/cover no-repeat;
       min-height:380px;
       display:flex;
       align-items:center;
@@ -48,259 +42,77 @@
       position:relative;
       color:#fff;
     }
-    .hero-shade{
-      background:rgba(14,44,99,.62);
-      position:absolute; inset:0;
-    }
-    .hero-wrap{
-      position:relative; z-index:1;
-      max-width:590px;
-      padding:18px;
-    }
-    .hero h1{
-      font-family:"Newsreader", serif;
-      font-size:clamp(32px,4vw,46px);
-      font-weight:700;
-      margin-bottom:18px;
-    }
-    .hero p{
-      font-size:clamp(16px,1.3vw,19px);
-      margin-bottom:26px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      padding:14px 26px;
-      border-radius:var(--radius);
-      transition:.25s;
-    }
-    .btn.primary{
-      background:var(--gold);
-      color:#1d1d1f;
-    }
-    .btn.primary:hover{
-      background:#d1b585;
-    }
-
-    /* ===== QUIZ ===== */
-    .quiz{
-      padding:42px 0 32px;
-    }
-    .quiz-head{
-      text-align:center;
-      margin-bottom:26px;
-    }
-    .quiz-title{
-      font-family:"Newsreader", Georgia, serif;
-      font-weight:700;
-      color:var(--brand);
-      font-size:clamp(26px,3.2vw,36px);
-    }
-
-    .stepper{
-      display:flex; gap:14px; align-items:center; justify-content:center;
-      margin:18px 0 8px;
-    }
-    .step{
-      width:40px; height:40px; border-radius:50%;
-      display:grid; place-items:center;
-      font-weight:700;
-      border:1.5px solid var(--gold);
-      background:#fff;
-      color:var(--brand);
-    }
-    .step.active{
-      background:var(--gold);
-      color:#1a1a1a;
-      box-shadow:inset 0 0 0 2px #fff;
-    }
-    .rail{
-      width:64px; height:2px; background:var(--gold);
-    }
-    .muted{ color:var(--ink-2) }
-
-    .quiz-grid{
-      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:start;
-    }
-    .card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
-    }
-    .label{
-      font-weight:700;
-      color:var(--brand);
-      letter-spacing:.02em;
-      margin-bottom:8px;
-    }
-
-    .select,.input,.textarea{
-      width:100%;
-      padding:14px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:#fff;
-      font-size:16px;
-      transition:border-color .2s, box-shadow .2s;
-    }
-    .select:focus,.input:focus,.textarea:focus{
-      outline:none;
-      border-color:var(--gold);
-      box-shadow:0 0 0 3px rgba(201,168,106,.35);
-    }
-
-    .choices{
-      display:grid; grid-template-columns:repeat(3,1fr);
-      gap:12px; margin-top:10px;
-    }
-    .choice{
-      border:1.5px solid var(--brand);
-      color:var(--brand);
-      border-radius:12px; padding:14px;
-      text-align:center;
-      font-weight:700;
-      cursor:pointer;
-      transition:transform .04s ease, background .2s, color .2s;
-    }
-    .choice:hover{ transform:translateY(-1px) }
-    .choice.active{
-      background:var(--brand);
-      color:#fff;
-    }
-
-    .aside{
-      position:sticky; top:92px;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px;
-    }
-    .bullet{
-      display:flex; gap:10px;
-      margin:8px 0;
-      color:var(--ink-2);
-    }
-    .bullet::before{
-      content:"•";
-      color:var(--gold);
-      font-weight:900;
-    }
-
-    @media(max-width:980px){
-      .quiz-grid{ grid-template-columns:1fr; }
-      .aside{ position:relative; top:auto; }
-    }
+    .hero-shade{ background:rgba(14,44,99,.62); position:absolute; inset:0; }
+    .hero-wrap{ position:relative; z-index:1; max-width:590px; padding:18px; }
+    .hero h1{ font-family:"Newsreader", serif; font-size:clamp(32px,4vw,46px); font-weight:700; margin-bottom:18px; }
+    .hero p{ font-size:clamp(16px,1.3vw,19px); margin-bottom:26px; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; font-weight:700; padding:14px 26px; border-radius:var(--radius); transition:.25s; }
+    .btn.primary{ background:var(--gold); color:#1d1d1f; }
+    .btn.primary:hover{ background:#d1b585; }
 
     /* ===== SECTION POURQUOI ===== */
-    .why{
-      background:linear-gradient(#0e2c63,#0a1d46);
-      color:#fff;
-      padding:70px 0;
-      text-align:center;
-    }
-    .why h2{
-      font-family:"Newsreader", serif;
-      font-size:clamp(30px,3vw,42px);
-      margin-bottom:32px;
-    }
-    .why-grid{
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:22px;
-      margin-top:32px;
-    }
-    .why-card{
-      background:#fff;
-      color:var(--ink);
-      border-radius:var(--radius);
-      padding:26px;
-      box-shadow:var(--shadow);
-      border-top:5px solid var(--gold);
-    }
-    .why-card h3{
-      color:var(--brand);
-      font-size:22px;
-      margin-bottom:8px;
+    .why{ background:linear-gradient(#0e2c63,#0a1d46); color:#fff; padding:70px 0; text-align:center; }
+    .why h2{ font-family:"Newsreader", serif; font-size:clamp(30px,3vw,42px); margin-bottom:32px; }
+    .why-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:32px; }
+    .why-card{ background:#fff; color:var(--ink); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); border-top:5px solid var(--gold); }
+    .why-card h3{ color:var(--brand); font-size:22px; margin-bottom:8px; }
+
+    /* ===== FORMULAIRE + CONSEILLER ===== */
+    .form-section{ padding:60px 0; background:#fff; }
+    .form-section h2{ text-align:center; margin-bottom:24px; font-family:"Newsreader", serif; font-size:clamp(28px,3vw,36px); color:var(--brand); }
+
+    /* grille 2 colonnes : conseiller + formulaire */
+    .form-two-col{
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:28px;
+      align-items:start;
+      max-width:980px;
+      margin:0 auto;
+      padding:0 18px;
     }
 
-    /* ===== FORMULAIRE ===== */
-    .form-section{
-      padding:60px 0;
-      background:#fff;
+    /* carte conseiller */
+    .advisor{
+      background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:22px; text-align:center;
     }
+    .advisor-pic{
+      width:100%; max-width:220px; margin:auto;
+      aspect-ratio:1/1; object-fit:cover; border-radius:18px;
+      box-shadow:0 6px 14px rgba(0,0,0,.08); border:3px solid var(--gold);
+    }
+    .advisor-name{ margin-top:12px; font-weight:700; font-size:20px; color:var(--brand); }
+    .advisor-role{ font-size:14px; color:var(--ink-2); }
+
+    /* étoiles */
+    .stars{ margin-top:8px; font-size:18px; letter-spacing:2px; color:var(--gold); }
+
+    /* formulaire */
     .form-box{
-      max-width:600px;
-      margin: auto;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:30px;
+      background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:30px; max-width:600px; margin:0;
     }
-    .form-section h2{
-      text-align:center;
-      margin-bottom:24px;
-      font-family:"Newsreader", serif;
-      font-size:clamp(28px,3vw,36px);
-      color:var(--brand);
-    }
-    .btn.full{
-      width:100%;
-      margin-top:16px;
-    }
-    .consent{
-      font-size:13px;
-      margin-top:10px;
-      color:var(--ink-2);
-      line-height:1.45;
-    }
+    .input{ width:100%; padding:14px; border-radius:12px; border:1px solid var(--border); background:#fff; font-size:16px; transition:border-color .2s, box-shadow .2s; }
+    .input:focus{ outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,106,.35); }
+    .btn.full{ width:100%; margin-top:16px; }
+    .consent{ font-size:13px; margin-top:10px; color:var(--ink-2); line-height:1.45; }
 
     /* ===== FAQ ===== */
-    .faq-section{
-      padding:60px 0;
-    }
-    .faq-title{
-      text-align:center;
-      font-family:"Newsreader",serif;
-      font-size:clamp(28px,3vw,36px);
-      margin-bottom:18px;
-      color:var(--brand);
-    }
-    .faq-item{
-      max-width:780px;
-      margin:12px auto;
-      background:#fff;
-      border-radius:var(--radius);
-      border:1px solid var(--border);
-      padding:16px 22px;
-      cursor:pointer;
-    }
-    .faq-q{
-      font-weight:700;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .faq-a{
-      margin-top:10px;
-      display:none;
-      color:var(--ink-2);
-    }
+    .faq-section{ padding:60px 0; }
+    .faq-title{ text-align:center; font-family:"Newsreader",serif; font-size:clamp(28px,3vw,36px); margin-bottom:18px; color:var(--brand); }
+    .faq-item{ max-width:780px; margin:12px auto; background:#fff; border-radius:var(--radius); border:1px solid var(--border); padding:16px 22px; cursor:pointer; }
+    .faq-q{ font-weight:700; display:flex; justify-content:space-between; align-items:center; }
+    .faq-a{ margin-top:10px; display:none; color:var(--ink-2); }
 
-    /* ===== FOOTER ===== */
-    footer{
-      background:var(--brand);
-      color:#fff;
-      padding:24px;
-      margin-top:40px;
-      text-align:center;
-      font-size:14px;
-    }
+    /* FOOTER */
+    footer{ background:var(--brand); color:#fff; padding:24px; margin-top:40px; text-align:center; font-size:14px; }
     footer a{ color:#fff; text-decoration:underline; }
+
+    /* responsive */
+    @media(max-width:980px){
+      .form-two-col{ grid-template-columns:1fr; }
+    }
   </style>
 </head>
 
@@ -312,57 +124,7 @@
     <div class="container hero-wrap">
       <h1>Audit patrimonial complet — simulation gratuite</h1>
       <p>En 3 minutes, découvrez vos solutions d’investissement, fiscalité ou retraite, validées par Valority.</p>
-      <a href="#quiz" class="btn primary">Commencer</a>
-    </div>
-  </section>
-
-  <!-- ===== QUIZ ===== -->
-  <section id="quiz" class="quiz container">
-    <div class="quiz-head">
-      <div class="quiz-title">Trouver ma <span style="color:var(--brand)">solution patrimoniale</span></div>
-
-      <div class="stepper">
-        <div class="step active">1</div>
-        <div class="rail"></div>
-        <div class="step">2</div>
-        <div class="rail"></div>
-        <div class="step">3</div>
-      </div>
-
-      <div class="muted">Mon projet patrimonial</div>
-    </div>
-
-    <div class="quiz-grid">
-      <div class="card">
-        <label class="label">Je souhaite*</label>
-        <select class="select">
-          <option>Constituer mon capital</option>
-          <option>Réduire mes impôts</option>
-          <option>Préparer ma retraite</option>
-          <option>Transmettre mon patrimoine</option>
-        </select>
-
-        <div class="label" style="margin-top:18px">Vos connaissances en placement ?*</div>
-        <div class="choices">
-          <div class="choice">Débutant</div>
-          <div class="choice">Intermédiaire</div>
-          <div class="choice">Expert</div>
-        </div>
-
-        <div style="margin-top:18px">
-          <label class="label">Épargne mensuelle prévue</label>
-          <input type="number" class="input" placeholder="Ex : 300 €" />
-        </div>
-
-        <a class="btn primary" href="#form" style="margin-top:18px">Étape suivante</a>
-      </div>
-
-      <aside class="aside">
-        <div class="label">Pourquoi ces questions ?</div>
-        <div class="bullet">Adapter la solution à votre situation.</div>
-        <div class="bullet">Chiffrer l’impact fiscal et le rendement.</div>
-        <div class="bullet">100% confidentiel, sans engagement.</div>
-      </aside>
+      <a href="#form" class="btn primary">Commencer</a>
     </div>
   </section>
 
@@ -387,32 +149,39 @@
     </div>
   </section>
 
-  <!-- ===== FORMULAIRE ===== -->
+  <!-- ===== FORMULAIRE + VOTRE CONSEILLER ===== -->
   <section id="form" class="form-section">
     <h2>Recevoir mon audit complet</h2>
-    <form class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST">
 
-  <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
-  <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
-  <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
+    <div class="form-two-col">
+      <!-- Bloc conseiller avec TA PHOTO + étoiles -->
+      <aside class="advisor">
+        <!-- ➜ Mets ta photo dans /assets/martin.jpg, ou change le src -->
+        <img src="assets/martin.jpg" alt="Martin Diouf — Conseiller patrimonial" class="advisor-pic">
+        <div class="advisor-name">Martin Diouf</div>
+        <div class="advisor-role">Conseiller en gestion de patrimoine</div>
+        <div class="stars">★★★★★</div>
+      </aside>
 
-  <!-- redirection après envoi -->
-  <input type="hidden" name="_next" value="https://TONSITE.fr/merci.html">
+      <!-- Formulaire -->
+      <form class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST">
+        <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
+        <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
+        <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
 
-  <!-- sujet du mail automatique -->
-  <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
+        <!-- redirection après envoi (mets l'URL de ta page merci si tu l'as créée) -->
+        <input type="hidden" name="_next" value="https://laBSL7374.github.io/merci.html">
+        <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
+        <input type="hidden" name="_captcha" value="false">
 
-  <!-- pour éviter le spam bot -->
-  <input type="hidden" name="_captcha" value="false">
+        <button class="btn primary full" type="submit">Obtenir mon audit</button>
 
-  <button class="btn primary full" type="submit">Obtenir mon audit</button>
-
-  <div class="consent">
-    En validant, vous acceptez d’être recontacté(e) par un conseiller partenaire Valority
-    dans un cadre strictement confidentiel (RGPD).
-  </div>
-
-</form>
+        <div class="consent">
+          En validant, vous acceptez d’être recontacté(e) par un conseiller partenaire Valority
+          dans un cadre strictement confidentiel (RGPD).
+        </div>
+      </form>
+    </div>
   </section>
 
   <!-- ===== FAQ ===== -->
@@ -438,20 +207,13 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     © 2025 — Valority — Tous droits réservés<br>
-  <a href="mentions.html">Mentions légales</a> •
-  <a href="confidentialite.html">Politique de confidentialité</a> •
-  <a href="contact.html">Contact</a>
+    <a href="mentions.html">Mentions légales</a> •
+    <a href="confidentialite.html">Politique de confidentialité</a> •
+    <a href="contact.html">Contact</a>
   </footer>
 
-  <!-- ===== INTERACTION BUTTONS ===== -->
+  <!-- JS FAQ simple -->
   <script>
-    document.querySelectorAll('.choice').forEach(c=>{
-      c.addEventListener('click', ()=>{
-        c.parentNode.querySelectorAll('.choice').forEach(x=>x.classList.remove('active'));
-        c.classList.add('active');
-      });
-    });
-
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click', ()=>{
         const a = item.querySelector('.faq-a');
@@ -461,6 +223,6 @@
       });
     });
   </script>
-
 </body>
 </html>
+
