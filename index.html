@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Audit patrimonial gratuit — Valority</title>
 
-  <!-- FONTS CORRIGÉES -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&family=Newsreader:wght@300;700&display=swap" rel="stylesheet"/>
 
   <style>
@@ -29,12 +29,16 @@
     img{max-width:100%; display:block;}
     a{text-decoration:none;}
 
-    .container{ width:100%; max-width:1180px; margin:auto; padding:18px; }
+    .container{
+      width:100%;
+      max-width:1180px;
+      margin:auto;
+      padding:18px;
+    }
 
     /* ===== HERO ===== */
     .hero{
-      /* ➜ CHANGE ICI l'image de fond */
-      background:url('assets/hero.jpg') center/cover no-repeat;
+      background:url('https://pin.it/1S67yfSNL') center/cover no-repeat;
       min-height:380px;
       display:flex;
       align-items:center;
@@ -42,26 +46,87 @@
       position:relative;
       color:#fff;
     }
-    .hero-shade{ background:rgba(14,44,99,.62); position:absolute; inset:0; }
-    .hero-wrap{ position:relative; z-index:1; max-width:590px; padding:18px; }
-    .hero h1{ font-family:"Newsreader", serif; font-size:clamp(32px,4vw,46px); font-weight:700; margin-bottom:18px; }
-    .hero p{ font-size:clamp(16px,1.3vw,19px); margin-bottom:26px; }
-    .btn{ display:inline-flex; align-items:center; justify-content:center; font-weight:700; padding:14px 26px; border-radius:var(--radius); transition:.25s; }
-    .btn.primary{ background:var(--gold); color:#1d1d1f; }
-    .btn.primary:hover{ background:#d1b585; }
+    .hero-shade{
+      background:rgba(14,44,99,.62);
+      position:absolute; inset:0;
+    }
+    .hero-wrap{
+      position:relative; z-index:1;
+      max-width:590px;
+      padding:18px;
+    }
+    .hero h1{
+      font-family:"Newsreader", serif;
+      font-size:clamp(32px,4vw,46px);
+      font-weight:700;
+      margin-bottom:18px;
+    }
+    .hero p{
+      font-size:clamp(16px,1.3vw,19px);
+      margin-bottom:26px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      padding:14px 26px;
+      border-radius:var(--radius);
+      transition:.25s;
+    }
+    .btn.primary{
+      background:var(--gold);
+      color:#1d1d1f;
+    }
+    .btn.primary:hover{
+      background:#d1b585;
+    }
 
-    /* ===== SECTION POURQUOI ===== */
-    .why{ background:linear-gradient(#0e2c63,#0a1d46); color:#fff; padding:70px 0; text-align:center; }
-    .why h2{ font-family:"Newsreader", serif; font-size:clamp(30px,3vw,42px); margin-bottom:32px; }
-    .why-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:32px; }
-    .why-card{ background:#fff; color:var(--ink); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); border-top:5px solid var(--gold); }
-    .why-card h3{ color:var(--brand); font-size:22px; margin-bottom:8px; }
+    /* ===== POURQUOI ===== */
+    .why{
+      background:linear-gradient(#0e2c63,#0a1d46);
+      color:#fff;
+      padding:70px 0;
+      text-align:center;
+    }
+    .why h2{
+      font-family:"Newsreader", serif;
+      font-size:clamp(30px,3vw,42px);
+      margin-bottom:32px;
+    }
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+      margin-top:32px;
+    }
+    .why-card{
+      background:#fff;
+      color:var(--ink);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+      border-top:5px solid var(--gold);
+    }
+    .why-card h3{
+      color:var(--brand);
+      font-size:22px;
+      margin-bottom:8px;
+    }
 
     /* ===== FORMULAIRE + CONSEILLER ===== */
-    .form-section{ padding:60px 0; background:#fff; }
-    .form-section h2{ text-align:center; margin-bottom:24px; font-family:"Newsreader", serif; font-size:clamp(28px,3vw,36px); color:var(--brand); }
+    .form-section{
+      padding:60px 0;
+      background:#fff;
+    }
+    .form-section h2{
+      text-align:center;
+      margin-bottom:24px;
+      font-family:"Newsreader", serif;
+      font-size:clamp(28px,3vw,36px);
+      color:var(--brand);
+    }
 
-    /* grille 2 colonnes : conseiller + formulaire */
     .form-two-col{
       display:grid;
       grid-template-columns:320px 1fr;
@@ -72,44 +137,110 @@
       padding:0 18px;
     }
 
-    /* carte conseiller */
+    /* Carte conseiller */
     .advisor{
-      background:#fff; border:1px solid var(--border); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:22px; text-align:center;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      text-align:center;
     }
+    .advisor a{
+      display:inline-block;
+      transition:transform .2s ease;
+    }
+    .advisor a:hover{ transform:scale(1.05); }
     .advisor-pic{
-      width:100%; max-width:220px; margin:auto;
-      aspect-ratio:1/1; object-fit:cover; border-radius:18px;
-      box-shadow:0 6px 14px rgba(0,0,0,.08); border:3px solid var(--gold);
+      width:100%;
+      max-width:220px;
+      margin:auto;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      border-radius:18px;
+      border:3px solid var(--gold);
+      box-shadow:0 6px 14px rgba(0,0,0,.08);
     }
     .advisor-name{ margin-top:12px; font-weight:700; font-size:20px; color:var(--brand); }
     .advisor-role{ font-size:14px; color:var(--ink-2); }
-
-    /* étoiles */
     .stars{ margin-top:8px; font-size:18px; letter-spacing:2px; color:var(--gold); }
 
-    /* formulaire */
+    /* Formulaire */
     .form-box{
-      background:#fff; border:1px solid var(--border); border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:30px; max-width:600px; margin:0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:30px;
+      max-width:600px;
+      margin:0;
     }
-    .input{ width:100%; padding:14px; border-radius:12px; border:1px solid var(--border); background:#fff; font-size:16px; transition:border-color .2s, box-shadow .2s; }
-    .input:focus{ outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,106,.35); }
+    .input{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:16px;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .input:focus{
+      outline:none;
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(201,168,106,.35);
+    }
     .btn.full{ width:100%; margin-top:16px; }
-    .consent{ font-size:13px; margin-top:10px; color:var(--ink-2); line-height:1.45; }
+    .consent{
+      font-size:13px;
+      margin-top:10px;
+      color:var(--ink-2);
+      line-height:1.45;
+    }
 
     /* ===== FAQ ===== */
-    .faq-section{ padding:60px 0; }
-    .faq-title{ text-align:center; font-family:"Newsreader",serif; font-size:clamp(28px,3vw,36px); margin-bottom:18px; color:var(--brand); }
-    .faq-item{ max-width:780px; margin:12px auto; background:#fff; border-radius:var(--radius); border:1px solid var(--border); padding:16px 22px; cursor:pointer; }
-    .faq-q{ font-weight:700; display:flex; justify-content:space-between; align-items:center; }
-    .faq-a{ margin-top:10px; display:none; color:var(--ink-2); }
+    .faq-section{
+      padding:60px 0;
+    }
+    .faq-title{
+      text-align:center;
+      font-family:"Newsreader",serif;
+      font-size:clamp(28px,3vw,36px);
+      margin-bottom:18px;
+      color:var(--brand);
+    }
+    .faq-item{
+      max-width:780px;
+      margin:12px auto;
+      background:#fff;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:16px 22px;
+      cursor:pointer;
+    }
+    .faq-q{
+      font-weight:700;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .faq-a{
+      margin-top:10px;
+      display:none;
+      color:var(--ink-2);
+    }
 
-    /* FOOTER */
-    footer{ background:var(--brand); color:#fff; padding:24px; margin-top:40px; text-align:center; font-size:14px; }
+    /* ===== FOOTER ===== */
+    footer{
+      background:var(--brand);
+      color:#fff;
+      padding:24px;
+      margin-top:40px;
+      text-align:center;
+      font-size:14px;
+    }
     footer a{ color:#fff; text-decoration:underline; }
 
-    /* responsive */
+    /* Responsive */
     @media(max-width:980px){
       .form-two-col{ grid-template-columns:1fr; }
     }
@@ -149,21 +280,20 @@
     </div>
   </section>
 
-  <!-- ===== FORMULAIRE + VOTRE CONSEILLER ===== -->
+  <!-- ===== FORMULAIRE + CONSEILLER ===== -->
   <section id="form" class="form-section">
     <h2>Recevoir mon audit complet</h2>
 
     <div class="form-two-col">
-      <!-- Bloc conseiller avec TA PHOTO + étoiles -->
+      <!-- Bloc conseiller -->
       <aside class="advisor">
-  <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener noreferrer">
-    <img src="assets/martin-diouf.jpg" alt="Martin Diouf — Conseiller patrimonial" class="advisor-pic">
-  </a>
-  <div class="advisor-name">Martin Diouf</div>
-   <div class="advisor-role">Conseiller en gestion de patrimoine</div>
-   <div class="stars">★★★★★</div>
-  </aside>
-
+        <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/martin-diouf.jpg" alt="Martin Diouf — Conseiller patrimonial" class="advisor-pic">
+        </a>
+        <div class="advisor-name">Martin Diouf</div>
+        <div class="advisor-role">Conseiller en gestion de patrimoine</div>
+        <div class="stars">★★★★★</div>
+      </aside>
 
       <!-- Formulaire -->
       <form class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST">
@@ -171,7 +301,6 @@
         <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
         <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
 
-        <!-- redirection après envoi (mets l'URL de ta page merci si tu l'as créée) -->
         <input type="hidden" name="_next" value="https://laBSL7374.github.io/merci.html">
         <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
         <input type="hidden" name="_captcha" value="false">
@@ -214,17 +343,16 @@
     <a href="contact.html">Contact</a>
   </footer>
 
-  <!-- JS FAQ simple -->
+  <!-- JS FAQ -->
   <script>
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click', ()=>{
-        const a = item.querySelector('.faq-a');
-        const open = a.style.display === 'block';
+        const a=item.querySelector('.faq-a');
+        const open=a.style.display==='block';
         document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
-        a.style.display = open ? 'none' : 'block';
+        a.style.display=open?'none':'block';
       });
     });
   </script>
 </body>
 </html>
-
