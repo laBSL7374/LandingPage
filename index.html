@@ -310,26 +310,35 @@
       </aside>
 
       <!-- Formulaire -->
-      <form class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST">
+      <form id="leadForm" class="form-box" action="https://formsubmit.co/ajax/mdiouf@novaffi.fr" method="POST" accept-charset="UTF-8">
   <input class="input" name="Nom" type="text" placeholder="Nom complet*" required>
   <input class="input" name="Email" type="email" placeholder="E-mail*" required style="margin-top:12px;">
   <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required style="margin-top:12px;">
 
-  <!-- ✅ Redirection fiable sur GitHub Pages -->
-  <input type="hidden" name="_next" value="https://labs7374.github.io/LandingPage/merci.html">
-
-  <!-- Optionnels mais utiles -->
+  <!-- (plus besoin de _next) -->
   <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
+  <input type="text" name="_honey" style="display:none"> <!-- anti-bot -->
 
-  <button class="btn primary full" type="submit">Obtenir mon audit</button>
+  <button id="leadBtn" class="btn primary full" type="submit">Obtenir mon audit</button>
 
   <div class="consent">
     En validant, vous acceptez d’être recontacté(e) par un conseiller partenaire Valority
     dans un cadre strictement confidentiel (RGPD).
   </div>
 </form>
+
+<!-- Zone de confirmation (cachée au départ) -->
+<div id="leadSuccess" class="form-box" style="display:none; text-align:center;">
+  <h3 style="color:var(--brand); margin-bottom:10px;">Merci, votre demande est bien envoyée ✅</h3>
+  <p style="color:var(--ink-2);">
+    Je vous recontacte personnellement sous 24h pour affiner votre simulation.
+  </p>
+  <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener" class="btn" style="margin-top:12px; background:var(--gold); color:#0e2c63;">
+    Voir mon profil LinkedIn
+  </a>
+</div>
 
   </section>
 
@@ -377,5 +386,39 @@
       });
     });
   </script>
+  <script>
+  (function(){
+    const form = document.getElementById('leadForm');
+    const btn  = document.getElementById('leadBtn');
+    const ok   = document.getElementById('leadSuccess');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
+
+      try {
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+
+        if (resp.ok) {
+          form.style.display = 'none';
+          ok.style.display = 'block';
+        } else {
+          alert("Oups, l'envoi a échoué. Réessayez ou contactez-moi directement.");
+          btn.disabled = false;
+          btn.textContent = 'Obtenir mon audit';
+        }
+      } catch (err) {
+        alert("Connexion momentanément indisponible. Merci de réessayer.");
+        btn.disabled = false;
+        btn.textContent = 'Obtenir mon audit';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
