@@ -390,21 +390,21 @@
         </div>
       </aside>
 
-      <!-- Formulaire amélioré -->
-      <form id="leadForm" class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST" accept-charset="UTF-8">
+      <!-- Formulaire avec Formspree -->
+      <form id="leadForm" class="form-box" action="https://formspree.io/f/xldaavva" method="POST" accept-charset="UTF-8">
         
-        <input class="input" name="Nom" type="text" placeholder="Nom et prénom*" required>
+        <input class="input" name="nom" type="text" placeholder="Nom et prénom*" required>
         
         <div class="form-row">
-          <input class="input" name="Email" type="email" placeholder="Adresse e-mail*" required>
+          <input class="input" name="email" type="email" placeholder="Adresse e-mail*" required>
         </div>
         
         <div class="form-row">
-          <input class="input" name="Téléphone" type="tel" placeholder="Téléphone*" required>
+          <input class="input" name="telephone" type="tel" placeholder="Téléphone*" required>
         </div>
 
         <div class="form-row">
-          <select class="input" name="Département" required>
+          <select class="input" name="departement" required>
             <option value="">Votre département*</option>
             <option value="01">01 - Ain</option>
             <option value="02">02 - Aisne</option>
@@ -509,7 +509,7 @@
         </div>
 
         <div class="form-row">
-          <select class="input" name="Objectif" required>
+          <select class="input" name="objectif" required>
             <option value="">Votre objectif principal*</option>
             <option value="Optimiser ma fiscalité">Optimiser ma fiscalité</option>
             <option value="Préparer ma retraite">Préparer ma retraite</option>
@@ -521,7 +521,7 @@
         </div>
 
         <div class="form-row">
-          <select class="input" name="Disponibilité" required>
+          <select class="input" name="disponibilite" required>
             <option value="">Votre disponibilité*</option>
             <option value="Dès que possible">Dès que possible</option>
             <option value="Cette semaine">Cette semaine</option>
@@ -530,11 +530,8 @@
           </select>
         </div>
 
-        <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://www.novaffi.info/merci.html">
-        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_subject" value="Nouveau lead patrimonial - Novaffi">
+        <input type="text" name="_gotcha" style="display:none">
 
         <button id="leadBtn" class="btn primary full" type="submit">Obtenir mon audit gratuit</button>
 
@@ -543,6 +540,17 @@
           En validant ce formulaire, vous consentez à être recontacté(e) par Martin Diouf, conseiller en gestion de patrimoine mandataire exclusif Novaffi, dans le cadre de votre demande d'audit patrimonial. Vos données personnelles (nom, e-mail, téléphone, département) sont collectées uniquement pour traiter votre demande et ne seront ni vendues, ni transmises à des tiers à des fins commerciales. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour toute demande, contactez : <strong>mdiouf@novaffi.fr</strong>
         </div>
       </form>
+
+      <!-- Zone de confirmation (cachée au départ) -->
+      <div id="leadSuccess" class="form-box" style="display:none; text-align:center;">
+        <h3 style="color:var(--brand); margin-bottom:10px;">Merci, votre demande est bien envoyée ✅</h3>
+        <p style="color:var(--ink-2);">
+          Je vous recontacte personnellement sous 24h pour affiner votre simulation.
+        </p>
+        <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener" class="btn primary" style="margin-top:12px;">
+          Voir mon profil LinkedIn
+        </a>
+      </div>
     </div>
   </section>
 
@@ -598,14 +606,40 @@
       });
     });
 
-    // Form submission
+    // Form submission with Formspree
     (function(){
       const form = document.getElementById('leadForm');
       const btn  = document.getElementById('leadBtn');
+      const formBox = document.querySelector('.form-box');
+      const successBox = document.getElementById('leadSuccess');
 
-      form.addEventListener('submit', () => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
         btn.disabled = true;
         btn.textContent = 'Envoi en cours…';
+
+        try {
+          const resp = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (resp.ok) {
+            formBox.style.display = 'none';
+            successBox.style.display = 'block';
+          } else {
+            alert("Une erreur s'est produite. Réessayez ou contactez-moi directement.");
+            btn.disabled = false;
+            btn.textContent = 'Obtenir mon audit gratuit';
+          }
+        } catch (err) {
+          alert("Problème de connexion. Merci de réessayer dans quelques instants.");
+          btn.disabled = false;
+          btn.textContent = 'Obtenir mon audit gratuit';
+        }
       });
     })();
   </script>
