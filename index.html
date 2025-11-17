@@ -391,7 +391,7 @@
       </aside>
 
       <!-- Formulaire amélioré -->
-      <form id="leadForm" class="form-box" action="https://formsubmit.co/ajax/mdiouf@novaffi.fr" method="POST" accept-charset="UTF-8">
+      <form id="leadForm" class="form-box" action="https://formsubmit.co/mdiouf@novaffi.fr" method="POST" accept-charset="UTF-8">
         
         <input class="input" name="Nom" type="text" placeholder="Nom et prénom*" required>
         
@@ -533,6 +533,7 @@
         <input type="hidden" name="_subject" value="Nouveau lead patrimonial !">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://votre-domaine.com/merci.html">
         <input type="text" name="_honey" style="display:none">
 
         <button id="leadBtn" class="btn primary full" type="submit">Obtenir mon audit gratuit</button>
@@ -542,17 +543,6 @@
           En validant ce formulaire, vous consentez à être recontacté(e) par Martin Diouf, conseiller en gestion de patrimoine mandataire exclusif Novaffi, dans le cadre de votre demande d'audit patrimonial. Vos données personnelles (nom, e-mail, téléphone, département) sont collectées uniquement pour traiter votre demande et ne seront ni vendues, ni transmises à des tiers à des fins commerciales. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour toute demande, contactez : <strong>mdiouf@novaffi.fr</strong>
         </div>
       </form>
-
-      <!-- Zone de confirmation (cachée au départ) -->
-      <div id="leadSuccess" class="form-box" style="display:none; text-align:center;">
-        <h3 style="color:var(--brand); margin-bottom:10px;">Merci, votre demande est bien envoyée ✅</h3>
-        <p style="color:var(--ink-2);">
-          Je vous recontacte personnellement sous 24h pour affiner votre simulation.
-        </p>
-        <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener" class="btn primary" style="margin-top:12px;">
-          Voir mon profil LinkedIn
-        </a>
-      </div>
     </div>
   </section>
 
@@ -590,9 +580,9 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    © 2025 — Valority — Tous droits réservés<br>
+    © 2025 — Novaffi — Tous droits réservés<br>
     <a href="mentions.html">Mentions légales</a> •
-    <a href="confdentialite.html">Politique de confidentialité</a> •
+    <a href="confidentialite.html">Politique de confidentialité</a> •
     <a href="contact.html">Contact</a>
   </footer>
 
@@ -612,33 +602,10 @@
     (function(){
       const form = document.getElementById('leadForm');
       const btn  = document.getElementById('leadBtn');
-      const ok   = document.getElementById('leadSuccess');
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+      form.addEventListener('submit', () => {
         btn.disabled = true;
         btn.textContent = 'Envoi en cours…';
-
-        try {
-          const resp = await fetch(form.action, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: new FormData(form)
-          });
-
-          if (resp.ok) {
-            form.style.display = 'none';
-            ok.style.display = 'block';
-          } else {
-            alert("Oups, l'envoi a échoué. Réessayez ou contactez-moi directement.");
-            btn.disabled = false;
-            btn.textContent = 'Obtenir mon audit gratuit';
-          }
-        } catch (err) {
-          alert("Connexion momentanément indisponible. Merci de réessayer.");
-          btn.disabled = false;
-          btn.textContent = 'Obtenir mon audit gratuit';
-        }
       });
     })();
   </script>
