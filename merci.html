@@ -1,56 +1,370 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merci pour votre demande — Valority</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WZQ28ZTP');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merci — Demande envoyée | Novaffi</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&family=Newsreader:wght@300;700&display=swap" rel="stylesheet"/>
+
   <style>
+    :root{
+      --brand:#0e2c63;
+      --gold:#c9a76a;
+      --bg:#fafbfc;
+      --ink:#1d1d1f;
+      --ink-2:#636b75;
+      --border:#e4e6ea;
+      --radius:14px;
+      --shadow: 0 6px 14px rgba(10,22,40,.06);
+    }
+    *{margin:0; padding:0; box-sizing:border-box;}
     body{
-      background:linear-gradient(135deg,#0e2c63,#091b3c);
-      color:#fff;
-      font-family:"Work Sans",sans-serif;
-      text-align:center;
-      padding:80px 20px;
+      background:linear-gradient(135deg, #fafbfc 0%, #f0f2f5 100%);
+      font-family:"Work Sans", sans-serif;
+      color:var(--ink);
+      line-height:1.55;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
     }
-    h1{
-      font-family:"Newsreader",serif;
-      font-size:clamp(28px,3vw,40px);
-      color:#c9a76a;
-      margin-bottom:20px;
+    img{max-width:100%; display:block;}
+    a{text-decoration:none;}
+
+    .container{
+      width:100%;
+      max-width:1180px;
+      margin:auto;
+      padding:18px;
     }
-    p{
-      font-size:18px;
-      color:#e0e0e0;
-      margin-bottom:40px;
+
+    /* ===== HEADER SIMPLE ===== */
+    .header{
+      background:#fff;
+      padding:20px 0;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 2px 8px rgba(0,0,0,.04);
     }
-    a.btn{
-      background:#c9a76a;
-      color:#0e2c63;
+    .header-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 18px;
+    }
+    .logo{
+      font-family:"Newsreader", serif;
+      font-size:26px;
       font-weight:700;
-      text-decoration:none;
-      padding:14px 28px;
-      border-radius:10px;
-      transition:.25s;
+      color:var(--brand);
     }
-    a.btn:hover{background:#d7bb87;}
-    img{
-      width:120px;
+    .header-link{
+      color:var(--brand);
+      font-weight:600;
+      font-size:15px;
+      transition:color .2s;
+    }
+    .header-link:hover{
+      color:var(--gold);
+    }
+
+    /* ===== SUCCESS SECTION ===== */
+    .success-section{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:60px 18px;
+    }
+    .success-card{
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:0 12px 40px rgba(10,22,40,.12);
+      padding:50px 40px;
+      max-width:620px;
+      text-align:center;
+      border-top:6px solid var(--gold);
+    }
+    .checkmark{
+      width:80px;
+      height:80px;
+      background:linear-gradient(135deg, #10b981 0%, #059669 100%);
       border-radius:50%;
-      border:3px solid #c9a76a;
-      margin-bottom:30px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 24px;
+      animation:scaleIn .5s ease;
+    }
+    @keyframes scaleIn{
+      from{ transform:scale(0); }
+      to{ transform:scale(1); }
+    }
+    .checkmark svg{
+      width:45px;
+      height:45px;
+      stroke:#fff;
+      stroke-width:3;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      fill:none;
+      stroke-dasharray:60;
+      stroke-dashoffset:60;
+      animation:checkmark .6s .3s ease forwards;
+    }
+    @keyframes checkmark{
+      to{ stroke-dashoffset:0; }
+    }
+    .success-card h1{
+      font-family:"Newsreader", serif;
+      font-size:clamp(28px,4vw,36px);
+      color:var(--brand);
+      margin-bottom:16px;
+    }
+    .success-card p{
+      color:var(--ink-2);
+      font-size:18px;
+      line-height:1.7;
+      margin-bottom:12px;
+    }
+    .success-card p.highlight{
+      background:#f0f9ff;
+      border-left:4px solid var(--brand);
+      padding:16px;
+      border-radius:8px;
+      margin:24px 0;
+      font-weight:600;
+      color:var(--brand);
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      padding:14px 28px;
+      border-radius:var(--radius);
+      transition:.25s;
+      cursor:pointer;
+      border:none;
+      font-size:16px;
+      margin-top:20px;
+    }
+    .btn.primary{
+      background:var(--gold);
+      color:#1d1d1f;
+    }
+    .btn.primary:hover{
+      background:#d1b585;
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(201,167,106,.3);
+    }
+    .btn.secondary{
+      background:transparent;
+      border:2px solid var(--border);
+      color:var(--brand);
+      margin-left:12px;
+    }
+    .btn.secondary:hover{
+      border-color:var(--brand);
+      background:rgba(14,44,99,.04);
+    }
+
+    /* ===== NEXT STEPS ===== */
+    .next-steps{
+      margin-top:32px;
+      padding-top:32px;
+      border-top:1px solid var(--border);
+      text-align:left;
+    }
+    .next-steps h3{
+      font-size:20px;
+      color:var(--brand);
+      margin-bottom:16px;
+      text-align:center;
+    }
+    .step{
+      display:flex;
+      gap:14px;
+      margin-bottom:18px;
+      align-items:start;
+    }
+    .step-num{
+      background:var(--gold);
+      color:#1d1d1f;
+      font-weight:700;
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      font-size:15px;
+    }
+    .step-content{
+      flex:1;
+    }
+    .step-content strong{
+      color:var(--brand);
+      display:block;
+      margin-bottom:4px;
+    }
+
+    /* ===== ADVISOR MINI ===== */
+    .advisor-mini{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      background:#f8f9fa;
+      padding:20px;
+      border-radius:12px;
+      margin-top:28px;
+    }
+    .advisor-mini img{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      border:3px solid var(--gold);
+      object-fit:cover;
+    }
+    .advisor-info{
+      flex:1;
+    }
+    .advisor-info strong{
+      color:var(--brand);
+      font-size:17px;
+      display:block;
+    }
+    .advisor-info span{
+      color:var(--ink-2);
+      font-size:14px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      background:var(--brand);
+      color:#fff;
+      padding:24px;
+      text-align:center;
+      font-size:14px;
+      margin-top:auto;
+    }
+    footer a{ color:#fff; text-decoration:underline; }
+
+    /* Responsive */
+    @media(max-width:640px){
+      .success-card{ padding:40px 24px; }
+      .btn{ width:100%; margin:8px 0; }
+      .btn.secondary{ margin-left:0; }
+      .advisor-mini{ flex-direction:column; text-align:center; }
     }
   </style>
 </head>
+
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZQ28ZTP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-  <img src="assets/martin-diouf.jpg" alt="Martin Diouf — Conseiller Valority">
-  <h1>Merci pour votre demande !</h1>
-  <p>Votre audit patrimonial est bien enregistré.<br>
-  Je vous recontacte personnellement sous 24h pour affiner votre profil.</p>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">Novaffi</div>
+      <a href="index.html" class="header-link">← Retour à l'accueil</a>
+    </div>
+  </header>
 
-  <a href="index.html" class="btn">Retour à la page d’accueil</a><br><br>
-  <a href="https://www.linkedin.com/in/martin-diouf/" style="color:#c9a76a;">→ Voir mon profil LinkedIn</a>
+  <!-- ===== SUCCESS SECTION ===== -->
+  <section class="success-section">
+    <div class="success-card">
+      <div class="checkmark">
+        <svg viewBox="0 0 52 52">
+          <polyline points="14,27 22,35 38,19"/>
+        </svg>
+      </div>
 
+      <h1>Demande envoyée avec succès !</h1>
+      
+      <p>
+        Merci pour votre confiance. Votre demande d'audit patrimonial a bien été reçue et transmise à Martin Diouf.
+      </p>
+
+      <p class="highlight">
+        📞 Vous serez contacté(e) personnellement sous 24h ouvrées
+      </p>
+
+      <p>
+        En attendant, n'hésitez pas à consulter le profil LinkedIn de votre conseiller pour en savoir plus sur son parcours et ses expertises.
+      </p>
+
+      <!-- BOUTONS D'ACTION -->
+      <div style="margin-top:28px;">
+        <a href="https://www.linkedin.com/in/martin-diouf/" target="_blank" rel="noopener noreferrer" class="btn primary">
+          Voir le profil LinkedIn
+        </a>
+        <a href="index.html" class="btn secondary">
+          Retour à l'accueil
+        </a>
+      </div>
+
+      <!-- PROCHAINES ÉTAPES -->
+      <div class="next-steps">
+        <h3>📋 Les prochaines étapes</h3>
+        
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Vérifiez votre boîte mail</strong>
+            Un email de confirmation vous a été envoyé (pensez à vérifier vos spams).
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Préparez vos questions</strong>
+            Notez vos objectifs patrimoniaux pour optimiser l'entretien téléphonique.
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Échange personnalisé (15-20 min)</strong>
+            Martin vous contactera pour un premier échange convivial et sans engagement.
+          </div>
+        </div>
+      </div>
+
+      <!-- MINI ADVISOR CARD -->
+      <div class="advisor-mini">
+        <img src="assets/martin-diouf.jpg" alt="Martin Diouf">
+        <div class="advisor-info">
+          <strong>Martin Diouf</strong>
+          <span>Conseiller en gestion de patrimoine</span><br>
+          <span style="font-size:13px; color:var(--gold);">Mandataire exclusif Novaffi</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 — Novaffi — Tous droits réservés<br>
+    <a href="mentions.html">Mentions légales</a> •
+    <a href="confidentialite.html">Politique de confidentialité</a> •
+    <a href="contact.html">Contact</a>
+  </footer>
 </body>
 </html>
-
